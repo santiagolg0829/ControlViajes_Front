@@ -6,12 +6,20 @@
 
 <ion-content class="ion-padding">
 
-  <ion-item>
-    <ion-input type="text" placeholder="Usuario"></ion-input>
-  </ion-item>
+  <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+    <ion-item>
+      <ion-label position="floating">Documento/Correo Electrónico</ion-label>
+      <ion-input id="email" type="text" formControlName="email"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-input type="password" placeholder="Contraseña"></ion-input>
-  </ion-item>
-  <ion-button (click)="login()">Ingresar</ion-button>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input id="password" type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit">Ingresar</ion-button>
+    
+  </form>
+
+
 </ion-content>

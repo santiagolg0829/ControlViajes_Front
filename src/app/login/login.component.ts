@@ -1,47 +1,73 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
+import { ModalController, ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
+import { PostService } from '../services/post/post.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  public email: string;
+  public password: string;
+  public loginForm: FormGroup;
+  private url = "Account/login";
+
+  constructor(private router: Router,
+    private storage: Storage,
+    private postService: PostService,
+    public toastCtrl: ToastController,
+    public modalCtrl: ModalController,
+    private formBuilder: FormBuilder) {
+
+    this.loginForm = this.formBuilder.group({
+      email: '',
+      password: ''
+    });
+  }
 
   ngOnInit() {
-    // With Routing in Ionic, The OnInit lifecycle hook 
-    // may not get called consistently.
-    console.log("LoginPage - OnInit");
   }
 
-  ngOnDestroy() {
-    // Likewise, this will may not consistently fire when you navigate away
-    // from the component
-    console.log("LoginPage - OnDestroy");
-  }
-    
-  // However, Ionic provides lifecycle hooks of its own that
-  // will fire consistently during route navigation
-
-  ionViewWillEnter() {
-    // This method will be called every time the component is navigated to
-    // On initialization, both ngOnInit and this method will be called
-
-    console.log("LoginPage - ViewWillEnter");
-  }
-
-
-  ionViewWillLeave() {
-    // This method will be called every time the component is navigated away from
-    // It would be a good method to call cleanup code such as unsubscribing from observables
-
-    console.log("LoginPage - ViewWillLeave");
-  }
-
-  login(){
-    this.router.navigate(['/camiones']);
+  login(loginForm: any) {
+    this.postService.post(this.url, loginForm).subscribe(async result => {
+      if (result.success) {
+        this.storage.clear();
+        this.storage.set('token', result.token);
+        this.storage.set('expiration', result.expiration);
+        this.storage.set('nombre', result.nombre);
+        this.router.navigate(['/usuarios']);
+      } else {
+        const toast = await this.toastCtrl.create({
+          message: result.message,
+          position: "middle",
+          color: "danger",
+          buttons: [{
+            text: 'Aceptar',
+            role: 'cancel'
+          }
+          ]
+        });
+        toast.present();
+      }
+    }, async error => {
+      const toast = await this.toastCtrl.create({
+        message: error,
+        position: "middle",
+        color: "danger",
+        buttons: [{
+          text: 'Aceptar',
+          role: 'cancel'
+        }
+        ]
+      });
+      toast.present();
+    });
   }
 
 }

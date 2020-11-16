@@ -4,6 +4,8 @@ import { DetalleCamionComponent } from '../detalle-camion/detalle-camion.compone
 import { GetService } from '../services/get/get.service';
 import { Camion } from './camion';
 import { OverlayEventDetail } from '@ionic/core';
+import { Storage } from '@ionic/storage';
+
 
 
 @Component({
@@ -19,7 +21,7 @@ export class CamionesPage implements OnInit {
   public statusesPropio: any[];
   private url = "camiones";
 
-  constructor(private getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController) {
+  constructor(private getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController, private storage: Storage) {
     this.camiones = [];
     this.statuses = [
       { label: 'Activo', value: 'true' },
@@ -36,9 +38,18 @@ export class CamionesPage implements OnInit {
       { field: 'activo', header: 'Estado' }
     ];
   }
-
+  
   ngOnInit() {
     this.obtenerCamiones();
+    this.storage.get('token').then((val) => {
+      console.log('Token:', val);
+    });
+    this.storage.get('expiration').then((val) => {
+      console.log('Expiration:', val);
+    });
+    this.storage.get('nombre').then((val) => {
+      console.log('Nombre:', val);
+    });
   }
 
   obtenerCamiones() {

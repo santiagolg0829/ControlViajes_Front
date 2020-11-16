@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Storage } from '@ionic/storage';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,10 +13,14 @@ export class GetService {
 
   //Constructor of the Service with Dependency Injection @param http The standard Angular HttpClient to make requests
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private storage: Storage) { }
 
   get(url: any, id?: any): Observable<any> {
-    return this.http.get(this.baseUrl + url + "/" + (id == null ? "" : id));
+
+    let reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.get(this.baseUrl + url + "/" + (id == null ? "" : id), { headers: reqHeader });
   }
 
 

@@ -20,13 +20,18 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'camiones',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'camiones',
     loadChildren: () => import('./camiones/camiones.module').then(m => m.CamionesPageModule)
+  },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./usuarios/usuarios.module').then( m => m.UsuariosPageModule)
   }
+
 ];
 
 @NgModule({

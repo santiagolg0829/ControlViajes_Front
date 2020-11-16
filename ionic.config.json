@@ -1,5 +1,7 @@
 {
   "name": "control-viajes",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
