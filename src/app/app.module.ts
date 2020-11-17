@@ -16,14 +16,24 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetalleCamionComponent } from './detalle-camion/detalle-camion.component';
 import { InterceptorService } from './services/interceptor/interceptor.service';
+import { DetalleSedeComponent } from './detalle-sede/detalle-sede.component';
+import { DetalleClienteComponent } from './detalle-cliente/detalle-cliente.component';
+import { DetalleUsuarioComponent } from './detalle-usuario/detalle-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DetalleCamionComponent
+    DetalleCamionComponent,
+    DetalleSedeComponent,
+    DetalleClienteComponent,
+    DetalleUsuarioComponent
   ],
-  entryComponents: [DetalleCamionComponent],
+  entryComponents: [
+    DetalleCamionComponent,
+    DetalleSedeComponent,
+    DetalleClienteComponent,
+    DetalleUsuarioComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

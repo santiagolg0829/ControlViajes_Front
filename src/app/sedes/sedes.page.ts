@@ -1,52 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
-import { DetalleCamionComponent } from '../detalle-camion/detalle-camion.component';
-import { GetService } from '../services/get/get.service';
-import { Camion } from './camion';
 import { OverlayEventDetail } from '@ionic/core';
-import { Storage } from '@ionic/storage';
-
-
+import { DetalleSedeComponent } from '../detalle-sede/detalle-sede.component';
+import { GetService } from '../services/get/get.service';
+import { Sede } from './sede';
 
 @Component({
-  selector: 'app-camiones',
-  templateUrl: './camiones.page.html',
-  styleUrls: ['./camiones.page.scss'],
+  selector: 'app-sedes',
+  templateUrl: './sedes.page.html',
+  styleUrls: ['./sedes.page.scss'],
 })
-export class CamionesPage implements OnInit {
+export class SedesPage implements OnInit {
 
-  public camiones: Camion[];
+  public sedes: Sede[];
   public cols: any[];
   public statuses: any[];
-  public statusesPropio: any[];
-  private url = "camiones";
+  private url = "sedes";
 
-  constructor(private getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController, private storage: Storage) {
-    this.camiones = [];
+  constructor(private getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController) {
+    this.sedes = [];
     this.statuses = [
       { label: 'Activo', value: 'true' },
       { label: 'Inactivo', value: 'false' },
     ];
-    this.statusesPropio = [
-      { label: 'Si', value: 'true' },
-      { label: 'No', value: 'false' },
-    ];
     this.cols = [
-      { field: 'placa', header: 'Placa' },
-      { field: 'remolque', header: 'Remolque' },
-      { field: 'esPropio', header: 'Propio' },
+      { field: 'nombre', header: 'Nombre' },
+      { field: 'direccion', header: 'Direccion' },
       { field: 'activo', header: 'Estado' }
     ];
   }
-  
+
   ngOnInit() {
-    this.obtenerCamiones();
+    this.obtenerSedes();
   }
 
-  obtenerCamiones() {
+  obtenerSedes() {
     this.getService.get(this.url).subscribe(async result => {
       if (result.success) {
-        this.camiones = result.message;
+        this.sedes = result.message;
       } else {
         const toast = await this.toastCtrl.create({
           message: result.message,
@@ -65,7 +56,7 @@ export class CamionesPage implements OnInit {
 
   async mostrarModal(id) {
     const modal = await this.modalCtrl.create({
-      component: DetalleCamionComponent,
+      component: DetalleSedeComponent,
       componentProps: {
         'id': id
       },
@@ -74,7 +65,7 @@ export class CamionesPage implements OnInit {
     modal.present();
     await modal.onWillDismiss().then((result: OverlayEventDetail) => {
       if (result.data != null && result.data.success) {
-        this.obtenerCamiones();
+        this.obtenerSedes();
       }
     });
   }
