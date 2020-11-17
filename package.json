@@ -22,6 +22,7 @@
     "@types/jasminewd2": "2.0.8",
     "@types/node": "12.12.54",
     "font-awesome": "^4.7.0",
+    "ionic-selectable": "^4.7.1",
     "primeicons": "^4.0.0",
     "primeng": "^10.0.3",
     "rxjs": "6.5.5",

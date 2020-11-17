@@ -1,15 +1,15 @@
-export class Cliente{
+import { Sede } from '../sedes/sede';
+
+export class Cliente {
     id: number;
-    placa: string;
-    remolque:string;
-    esPropio:boolean;
+    nombre: string;
+    lstSedes: Sede[];
     activo: boolean;
 
-    constructor(){
+    constructor() {
         this.id = 0;
-        this.placa = "";
-        this.remolque = "";
-        this.esPropio = true;
+        this.nombre = "";
+        this.lstSedes = [];
         this.activo = true;
     }
 }

@@ -1,3 +1,106 @@
-<p>
-  detalle-cliente works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="modal-title">
+        <span>Maestro Clientes</span>
+        <ion-button fill="clear" color="dark" (click)="dismiss(null)">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="cliente.nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Activo</ion-label>
+    <ion-checkbox [(ngModel)]="cliente.activo"></ion-checkbox>
+  </ion-item>
+
+  <p-button label="Agregar Sede" icon="pi pi-plus" iconPos="left" class="agregar-sede-button"
+    (click)="agregarSede()"></p-button>
+
+  <p-table #dt [columns]="cols" [value]="cliente.lstSedes" styleClass="p-datatable-striped p-datatable-responsive-demo"
+    [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
+    [rowsPerPageOptions]="[10,25,50]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon>
+        </th>
+        <th pSortableColumn="direccion">Dirección <p-sortIcon field="direccion"></p-sortIcon>
+        </th>
+        <th pSortableColumn="activo">Estado <p-sortIcon field="activo"></p-sortIcon>
+        </th>
+        <th rowspan="2" class="action-column">Acciones</th>
+      </tr>
+      <tr>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombre', 'contains')"
+            placeholder="Buscar por Nombre" class="p-column-filter">
+        </th>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'direccion', 'contains')"
+            placeholder="Buscar por Dirección" class="p-column-filter">
+        </th>
+        <th>
+          <p-dropdown [options]="statuses" (onChange)="dt.filter($event.value, 'activo', 'equals')"
+            styleClass="p-column-filter" placeholder="Buscar por Estado" [showClear]="true">
+            <ng-template let-option pTemplate="item">
+              <span>{{option.label}}</span>
+            </ng-template>
+          </p-dropdown>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-sede>
+      <tr>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="sede.nombre" placeholder="Nombre">
+            </ng-template>
+            <ng-template pTemplate="output">
+              <input pInputText type="text" placeholder="Nombre" value="{{sede.nombre}}">
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="sede.direccion" placeholder="Dirección">
+            </ng-template>
+            <ng-template pTemplate="output">
+              <input pInputText type="text" placeholder="Dirección" value="{{sede.direccion}}">
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown [options]="statuses" [(ngModel)]="sede.activo" [style]="{'width':'100%'}">
+              </p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              <input pInputText type="text" placeholder="Estado"
+                value="{{sede.activo == true ? 'Activo' : 'Inactivo'}}">
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td class="action-column">
+          <p-button label="Eliminar" icon="pi pi-times" iconPos="left" (click)="eliminarSede(sede)"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+
+  <ion-button (click)="guardar()">Guardar</ion-button>
+
+</ion-content>

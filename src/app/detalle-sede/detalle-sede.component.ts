@@ -106,7 +106,7 @@ export class DetalleSedeComponent implements OnInit {
       toast.present();
     });
   }
-  
+
   dismiss(result: any) {
     this.modalCtrl.dismiss(result);
   }

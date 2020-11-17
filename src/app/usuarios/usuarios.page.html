@@ -11,7 +11,7 @@
 
 <ion-content class="ion-padding">
 
-  <p-table #dt [columns]="cols" exportFilename="camiones" [value]="camiones"
+  <p-table #dt [columns]="cols" exportFilename="usuarios" [value]="usuarios"
     styleClass="p-datatable-striped p-datatable-responsive-demo" [paginator]="true" [rows]="10"
     [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
     [rowsPerPageOptions]="[10,25,50]">
@@ -23,11 +23,13 @@
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="placa">Nombre <p-sortIcon field="placa"></p-sortIcon>
+        <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon>
         </th>
-        <th pSortableColumn="remolque">Correo <p-sortIcon field="remolque"></p-sortIcon>
+        <th pSortableColumn="email">Correo <p-sortIcon field="email"></p-sortIcon>
         </th>
-        <th pSortableColumn="esPropio">Celular <p-sortIcon field="esPropio"></p-sortIcon>
+        <th pSortableColumn="celular">Celular <p-sortIcon field="celular"></p-sortIcon>
+        </th>
+        <th pSortableColumn="cliente">Cliente <p-sortIcon field="cliente"></p-sortIcon>
         </th>
         <th pSortableColumn="activo">Estado <p-sortIcon field="activo"></p-sortIcon>
         </th>
@@ -35,20 +37,20 @@
       </tr>
       <tr>
         <th>
-          <input pInputText type="text" (input)="dt.filter($event.target.value, 'placa', 'contains')"
-            placeholder="Buscar por Placa" class="p-column-filter">
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombre', 'contains')"
+            placeholder="Buscar por Nombre" class="p-column-filter">
         </th>
         <th>
-          <input pInputText type="text" (input)="dt.filter($event.target.value, 'remolque', 'contains')"
-            placeholder="Buscar por Remolque" class="p-column-filter">
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'email', 'contains')"
+            placeholder="Buscar por Correo Electrónico" class="p-column-filter">
         </th>
         <th>
-          <p-dropdown [options]="statusesPropio" (onChange)="dt.filter($event.value, 'esPropio', 'equals')"
-            styleClass="p-column-filter" placeholder="Buscar por Propio" [showClear]="true">
-            <ng-template let-option pTemplate="item">
-              <span>{{option.label}}</span>
-            </ng-template>
-          </p-dropdown>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'celular', 'contains')"
+            placeholder="Buscar por Celular" class="p-column-filter">
+        </th>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'cliente', 'contains')"
+            placeholder="Buscar por Cliente" class="p-column-filter">
         </th>
         <th>
           <p-dropdown [options]="statuses" (onChange)="dt.filter($event.value, 'activo', 'equals')"
@@ -60,14 +62,15 @@
         </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-camion>
+    <ng-template pTemplate="body" let-usuario>
       <tr>
-        <td><span class="p-column-title">Placa </span>{{camion.placa}}</td>
-        <td><span class="p-column-title">Remolque </span>{{camion.remolque}}</td>
-        <td><span class="p-column-title">Propio </span>{{camion.esPropio == true ? "Si" : "No"}}</td>
-        <td><span class="p-column-title">Estado </span>{{camion.activo == true ? "Activo" : "Inactivo"}}</td>
+        <td><span class="p-column-title">Nombre </span>{{usuario.nombre}}</td>
+        <td><span class="p-column-title">Email </span>{{usuario.email}}</td>
+        <td><span class="p-column-title">Celular </span>{{usuario.celular}}</td>
+        <td><span class="p-column-title">Celular </span>{{usuario.nombreCliente}}</td>
+        <td><span class="p-column-title">Estado </span>{{usuario.activo == true ? "Activo" : "Inactivo"}}</td>
         <td class="action-column">
-          <p-button label="Editar" icon="pi pi-pencil" iconPos="left" (click)="mostrarModal(camion.id)"></p-button>
+          <p-button label="Editar" icon="pi pi-pencil" iconPos="left" (click)="mostrarModal(usuario.id)"></p-button>
         </td>
       </tr>
     </ng-template>

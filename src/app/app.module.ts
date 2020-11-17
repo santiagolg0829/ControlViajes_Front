@@ -19,6 +19,10 @@ import { InterceptorService } from './services/interceptor/interceptor.service';
 import { DetalleSedeComponent } from './detalle-sede/detalle-sede.component';
 import { DetalleClienteComponent } from './detalle-cliente/detalle-cliente.component';
 import { DetalleUsuarioComponent } from './detalle-usuario/detalle-usuario.component';
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { TableModule } from 'primeng/table';
+import { IonicSelectableModule } from 'ionic-selectable';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,11 @@ import { DetalleUsuarioComponent } from './detalle-usuario/detalle-usuario.compo
     IonicModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule,
+    DropdownModule,
+    ButtonModule,
+    IonicSelectableModule
   ],
   providers: [
     StatusBar,

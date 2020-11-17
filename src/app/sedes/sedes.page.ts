@@ -58,7 +58,7 @@ export class SedesPage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: DetalleSedeComponent,
       componentProps: {
-        'id': id
+        'id': id,
       },
       backdropDismiss: false
     });
