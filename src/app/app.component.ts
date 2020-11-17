@@ -19,6 +19,11 @@ export class AppComponent {
       icon: 'car'
     },
     {
+      title: 'Clientes',
+      url: '/clientes',
+      icon: 'people'
+    },
+    {
       title: 'Usuarios',
       url: '/usuarios',
       icon: 'people'
