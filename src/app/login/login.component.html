@@ -1,25 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
-<ion-content class="ion-padding">
+  <div class="full-content">
+    <div class="login-container">
+      <div class="shadow-container">
+        <img src="../../assets/logo-imd.png" alt="logo">
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+          <ion-item>
+            <ion-label position="floating">Documento/Correo Electrónico</ion-label>
+            <ion-input id="email" type="text" formControlName="email"></ion-input>
+          </ion-item>
 
-  <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
-    <ion-item>
-      <ion-label position="floating">Documento/Correo Electrónico</ion-label>
-      <ion-input id="email" type="text" formControlName="email"></ion-input>
-    </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input id="password" type="password" formControlName="password"></ion-input>
+          </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input id="password" type="password" formControlName="password"></ion-input>
-    </ion-item>
-
-    <ion-button type="submit">Ingresar</ion-button>
-    
-  </form>
-
+          <ion-button type="submit">Ingresar</ion-button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 </ion-content>

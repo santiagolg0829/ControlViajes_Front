@@ -1,0 +1,18 @@
+<ion-fab vertical="top" horizontal="end" slot="fixed" edge>
+  <ion-fab-button fill="clear">{{nombre}}
+    <ion-icon name="person"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="bottom">
+
+    <ion-fab-button (click)="mostrarModal()" class="primary-button">
+      <ion-label>Cambiar Contraseña</ion-label>
+      <ion-icon name="lock-closed"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-button (click)="logout()" class="primary-button">
+      <ion-label>Cerrar Sesión</ion-label>
+      <ion-icon name="log-out"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab-list>
+</ion-fab>

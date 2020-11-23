@@ -60,7 +60,7 @@ export class ClientesPage implements OnInit {
         'id': id
       },
       backdropDismiss: false,
-      cssClass: 'modal-cliente'
+      cssClass: 'long-modal'
     });
     modal.present();
     await modal.onWillDismiss().then((result: OverlayEventDetail) => {

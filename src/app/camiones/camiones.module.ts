@@ -11,7 +11,8 @@ import { CamionesPage } from './camiones.page';
 
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
-import {ButtonModule} from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
+import { UserMenuComponent } from '../user-menu/user-menu.component';
 
 
 
@@ -25,6 +26,6 @@ import {ButtonModule} from 'primeng/button';
     DropdownModule,
     ButtonModule
   ],
-  declarations: [CamionesPage]
+  declarations: [CamionesPage, UserMenuComponent]
 })
 export class CamionesPageModule { }

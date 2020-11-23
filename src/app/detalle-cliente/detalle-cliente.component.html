@@ -23,7 +23,7 @@
     <ion-checkbox [(ngModel)]="cliente.activo"></ion-checkbox>
   </ion-item>
 
-  <p-button label="Agregar Sede" icon="pi pi-plus" iconPos="left" class="agregar-sede-button"
+  <p-button label="Agregar Sede" icon="pi pi-plus" iconPos="left" class="primary-button agregar-sede-button"
     (click)="agregarSede()"></p-button>
 
   <p-table #dt [columns]="cols" [value]="cliente.lstSedes" styleClass="p-datatable-striped p-datatable-responsive-demo"
@@ -94,7 +94,7 @@
           </p-cellEditor>
         </td>
         <td class="action-column">
-          <p-button label="Eliminar" icon="pi pi-times" iconPos="left" (click)="eliminarSede(sede)"></p-button>
+          <p-button label="Eliminar" icon="pi pi-times" iconPos="left" (click)="eliminarSede(sede)" class="primary-button"></p-button>
         </td>
       </tr>
     </ng-template>

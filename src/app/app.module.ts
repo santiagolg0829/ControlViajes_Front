@@ -23,6 +23,7 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { IonicSelectableModule } from 'ionic-selectable';
+import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +32,15 @@ import { IonicSelectableModule } from 'ionic-selectable';
     DetalleCamionComponent,
     DetalleSedeComponent,
     DetalleClienteComponent,
-    DetalleUsuarioComponent
+    DetalleUsuarioComponent,
+    CambiarPasswordComponent
   ],
   entryComponents: [
     DetalleCamionComponent,
     DetalleSedeComponent,
     DetalleClienteComponent,
-    DetalleUsuarioComponent],
+    DetalleUsuarioComponent,
+    CambiarPasswordComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

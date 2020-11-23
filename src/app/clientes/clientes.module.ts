@@ -11,6 +11,7 @@ import { ClientesPage } from './clientes.page';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
+import { UserMenuComponent } from '../user-menu/user-menu.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { ButtonModule } from 'primeng/button';
     DropdownModule,
     ButtonModule
   ],
-  declarations: [ClientesPage]
+  declarations: [ClientesPage, UserMenuComponent]
 })
 export class ClientesPageModule { }

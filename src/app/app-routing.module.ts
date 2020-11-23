@@ -29,15 +29,15 @@ const routes: Routes = [
   },
   {
     path: 'usuarios',
-    loadChildren: () => import('./usuarios/usuarios.module').then( m => m.UsuariosPageModule)
+    loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosPageModule)
   },
   {
     path: 'clientes',
-    loadChildren: () => import('./clientes/clientes.module').then( m => m.ClientesPageModule)
+    loadChildren: () => import('./clientes/clientes.module').then(m => m.ClientesPageModule)
   },
   {
     path: 'sedes',
-    loadChildren: () => import('./sedes/sedes.module').then( m => m.SedesPageModule)
+    loadChildren: () => import('./sedes/sedes.module').then(m => m.SedesPageModule)
   }
 
 

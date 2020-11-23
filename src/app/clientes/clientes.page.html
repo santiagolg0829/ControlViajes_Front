@@ -7,6 +7,7 @@
       Clientes
     </ion-title>
   </ion-toolbar>
+  <app-user-menu></app-user-menu>
 </ion-header>
 
 <ion-content class="ion-padding">
@@ -49,7 +50,8 @@
         <td><span class="p-column-title">Nombre </span>{{cliente.nombre}}</td>
         <td><span class="p-column-title">Estado </span>{{cliente.activo == true ? "Activo" : "Inactivo"}}</td>
         <td class="action-column">
-          <p-button label="Editar" icon="pi pi-pencil" iconPos="left" (click)="mostrarModal(cliente.id)"></p-button>
+          <p-button label="Editar" icon="pi pi-pencil" iconPos="left" (click)="mostrarModal(cliente.id)"
+            class="primary-button"></p-button>
         </td>
       </tr>
     </ng-template>

@@ -1,0 +1,12 @@
+ion-fab{
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    height: -webkit-fill-available;
+    align-items: center;
+    ion-fab-button{
+        --border-radius: 0;
+        width: 250px;
+        white-space: pre-wrap !important;
+    }
+}
