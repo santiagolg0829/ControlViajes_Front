@@ -8,6 +8,7 @@ export class Usuario {
     idCliente: number;
     nombreCliente: string;
     roles: any[];
+    activo: boolean;
 
     constructor() {
         this.cedula = "";
@@ -35,5 +36,6 @@ export class Usuario {
                 "seleccionado": false
             }
         ];
+        this.activo = true;
     }
 }

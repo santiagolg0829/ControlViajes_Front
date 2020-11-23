@@ -12,7 +12,7 @@ import { CamionesPage } from './camiones.page';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
-import { UserMenuComponent } from '../user-menu/user-menu.component';
+import { UserMenuComponentModule } from '../user-menu/user-menu.module';
 
 
 
@@ -24,8 +24,9 @@ import { UserMenuComponent } from '../user-menu/user-menu.component';
     CamionesPageRoutingModule,
     TableModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    UserMenuComponentModule
   ],
-  declarations: [CamionesPage, UserMenuComponent]
+  declarations: [CamionesPage]
 })
 export class CamionesPageModule { }

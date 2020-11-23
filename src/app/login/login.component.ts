@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
         this.storage.set('token', result.token);
         this.storage.set('expiration', result.expiration);
         this.storage.set('nombre', result.nombre);
+        this.loginForm.reset();
         this.router.navigate(['/usuarios']);
       } else {
         const toast = await this.toastCtrl.create({

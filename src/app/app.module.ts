@@ -24,6 +24,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { IonicSelectableModule } from 'ionic-selectable';
 import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
+import { UserMenuComponent } from './user-menu/user-menu.component';
+import { UserMenuComponentModule } from './user-menu/user-menu.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.co
     DetalleSedeComponent,
     DetalleClienteComponent,
     DetalleUsuarioComponent,
-    CambiarPasswordComponent],
+    CambiarPasswordComponent
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -48,14 +51,14 @@ import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.co
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    IonicModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     TableModule,
     DropdownModule,
     ButtonModule,
-    IonicSelectableModule
+    IonicSelectableModule,
+    UserMenuComponentModule
   ],
   providers: [
     StatusBar,

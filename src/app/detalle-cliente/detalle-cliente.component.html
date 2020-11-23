@@ -26,7 +26,7 @@
   <p-button label="Agregar Sede" icon="pi pi-plus" iconPos="left" class="primary-button agregar-sede-button"
     (click)="agregarSede()"></p-button>
 
-  <p-table #dt [columns]="cols" [value]="cliente.lstSedes" styleClass="p-datatable-striped p-datatable-responsive-demo"
+  <p-table #dt [value]="cliente.lstSedes" styleClass="p-datatable-striped p-datatable-responsive-demo"
     [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
     currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
     [rowsPerPageOptions]="[10,25,50]">
