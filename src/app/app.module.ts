@@ -24,8 +24,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { IonicSelectableModule } from 'ionic-selectable';
 import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
-import { UserMenuComponent } from './user-menu/user-menu.component';
 import { UserMenuComponentModule } from './user-menu/user-menu.module';
+import { DetalleProgramacionViajesComponent } from './detalle-programacion-viajes/detalle-programacion-viajes.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +35,16 @@ import { UserMenuComponentModule } from './user-menu/user-menu.module';
     DetalleSedeComponent,
     DetalleClienteComponent,
     DetalleUsuarioComponent,
-    CambiarPasswordComponent
+    CambiarPasswordComponent,
+    DetalleProgramacionViajesComponent
   ],
   entryComponents: [
     DetalleCamionComponent,
     DetalleSedeComponent,
     DetalleClienteComponent,
     DetalleUsuarioComponent,
-    CambiarPasswordComponent
+    CambiarPasswordComponent,
+    DetalleProgramacionViajesComponent
   ],
   imports: [
     BrowserModule,
