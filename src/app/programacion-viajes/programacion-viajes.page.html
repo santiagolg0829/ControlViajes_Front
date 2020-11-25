@@ -24,9 +24,15 @@
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="nombre">Fecha <p-sortIcon field="fecha"></p-sortIcon></th>
 
+        <th pSortableColumn="nombre">Fecha <p-sortIcon field="fecha"></p-sortIcon></th>
+        <th pSortableColumn="nombre">Placa <p-sortIcon field="placa"></p-sortIcon></th>
         <th pSortableColumn="activo">Conductor <p-sortIcon field="nombreConductor"></p-sortIcon></th>
+        <th pSortableColumn="Auxiliar">Auxiliar <p-sortIcon field="nombreAuxiliar"></p-sortIcon></th>
+        <th pSortableColumn="activo">Cliente <p-sortIcon field="nombreCliente"></p-sortIcon></th>
+        <th pSortableColumn="activo">Origen <p-sortIcon field="nombreOrigen"></p-sortIcon></th>
+        <th pSortableColumn="activo">Destino <p-sortIcon field="nombreDestino"></p-sortIcon></th>
+        <th pSortableColumn="activo">Desfase <p-sortIcon field="desfase"></p-sortIcon></th>
         
         <th rowspan="2" class="action-column">Acciones</th>
       </tr>
@@ -36,15 +42,46 @@
             placeholder="Buscar por Fecha" class="p-column-filter">
         </th>
         <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'placa', 'contains')"
+            placeholder="Buscar por Placa" class="p-column-filter">
+        </th>
+        <th>
           <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombreConductor', 'contains')"
             placeholder="Buscar por Conductor" class="p-column-filter">
+        </th>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombreAuxiliar', 'contains')"
+            placeholder="Buscar por Auxiliar" class="p-column-filter">
+        </th>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombreCliente', 'contains')"
+            placeholder="Buscar por Cliente" class="p-column-filter">
+        </th>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombreOrigen', 'contains')"
+            placeholder="Buscar por Origen" class="p-column-filter">
+        </th>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombreDestino', 'contains')"
+            placeholder="Buscar por Destino" class="p-column-filter">
+        </th>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'desfase', 'contains')"
+            placeholder="Buscar por Desfase" class="p-column-filter">
         </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-viaje>
       <tr>
-        <td><span class="p-column-title">Fecha </span>{{viaje.fecha}}</td>
+        <td><span class="p-column-title">Fecha </span>{{viaje.fecha | date: 'dd/MM/yyyy h:mm'}}</td>
+        <td><span class="p-column-title">Placa </span>{{viaje.placa}}</td>
         <td><span class="p-column-title">Conductor </span>{{viaje.nombreConductor}}</td>
+        <td><span class="p-column-title">Auxiliar </span>{{viaje.nombreAuxiliar}}</td>
+        <td><span class="p-column-title">Cliente </span>{{viaje.nombreCliente}}</td>
+        <td><span class="p-column-title">Origen </span>{{viaje.nombreOrigen}}</td>
+        <td><span class="p-column-title">Destino </span>{{viaje.nombreDestino}}</td>
+        <td><span class="p-column-title">Desfase </span>{{viaje.desfase}}</td>
+
         <td class="action-column">
           <p-button label="Editar" icon="pi pi-pencil" iconPos="left" (click)="mostrarModal(viaje.id)"
             class="primary-button">

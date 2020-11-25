@@ -13,30 +13,16 @@
 
 <ion-content class="ion-padding">
 
-  <!-- <ion-item>
-    <ion-label>Cédula</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.cedula"></ion-input>
-  </ion-item>
-
   <ion-item>
-    <ion-label>Nombre</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.nombre"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Correo Electrónico</ion-label>
-    <ion-input type="email" [(ngModel)]="usuario.email"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Celular</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.celular"></ion-input>
-  </ion-item> -->
+    <ion-label>Fecha</ion-label>  
+    <ion-datetime placeholder="Fecha Programada" displayFormat= "YYYY/MM/DD h:mm A" [(ngModel)]="fecha" >
+    </ion-datetime>
+  </ion-item> 
 
   <ion-item>
     <ion-label>Cliente</ion-label>
     <ionic-selectable #portComponent [(ngModel)]="cliente" [items]="clientes" itemValueField="id" itemTextField="nombre"
-      [canSearch]="true">
+      [canSearch]="true" (onChange)="obtenerOrigenesDestinos()">
       <ng-template ionicSelectableHeaderTemplate>
         <ion-toolbar>
           <ion-title>
@@ -50,6 +36,116 @@
         </ion-toolbar>
       </ng-template>
     </ionic-selectable>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Placa</ion-label>
+    <ionic-selectable #portComponent [(ngModel)]="camion" [items]="camiones" itemValueField="id" itemTextField="placa"
+      [canSearch]="true">
+      <ng-template ionicSelectableHeaderTemplate>
+        <ion-toolbar>
+          <ion-title>
+            <div class="modal-title">
+              <span>Camiones</span>
+              <ion-button fill="clear" color="dark" (click)="portComponent.close()">
+                <ion-icon name="close-circle" style="font-size: 24px;"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-title>
+        </ion-toolbar>
+      </ng-template>
+    </ionic-selectable>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Conductor</ion-label>
+    <ionic-selectable #portComponent1 [(ngModel)]="conductor" [items]="conductores" itemValueField="id" itemTextField="nombre"
+      [canSearch]="true">
+      <ng-template ionicSelectableHeaderTemplate>
+        <ion-toolbar>
+          <ion-title>
+            <div class="modal-title">
+              <span>Conductores</span>
+              <ion-button fill="clear" color="dark" (click)="portComponent1.close()">
+                <ion-icon name="close-circle" style="font-size: 24px;"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-title>
+        </ion-toolbar>
+      </ng-template>
+    </ionic-selectable>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Auxiliar</ion-label>
+    <ionic-selectable #portComponent2 [(ngModel)]="auxiliar" [items]="auxiliares" itemValueField="id" itemTextField="nombre"
+      [canSearch]="true">
+      <ng-template ionicSelectableHeaderTemplate>
+        <ion-toolbar>
+          <ion-title>
+            <div class="modal-title">
+              <span>Auxiliares</span>
+              <ion-button fill="clear" color="dark" (click)="portComponent2.close()">
+                <ion-icon name="close-circle" style="font-size: 24px;"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-title>
+        </ion-toolbar>
+      </ng-template>
+    </ionic-selectable>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Origen</ion-label>
+    <ionic-selectable #portComponent3 [(ngModel)]="origen" [items]="origenesDestinos" itemValueField="id" itemTextField="nombre"
+      [canSearch]="true">
+      <ng-template ionicSelectableHeaderTemplate>
+        <ion-toolbar>
+          <ion-title>
+            <div class="modal-title">
+              <span>Origen</span>
+              <ion-button fill="clear" color="dark" (click)="portComponent3.close()">
+                <ion-icon name="close-circle" style="font-size: 24px;"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-title>
+        </ion-toolbar>
+      </ng-template>
+    </ionic-selectable>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Destino</ion-label>
+    <ionic-selectable #portComponent4 [(ngModel)]="destino" [items]="origenesDestinos" itemValueField="id" itemTextField="nombre"
+      [canSearch]="true">
+      <ng-template ionicSelectableHeaderTemplate>
+        <ion-toolbar>
+          <ion-title>
+            <div class="modal-title">
+              <span>Destino</span>
+              <ion-button fill="clear" color="dark" (click)="portComponent4.close()">
+                <ion-icon name="close-circle" style="font-size: 24px;"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-title>
+        </ion-toolbar>
+      </ng-template>
+    </ionic-selectable>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Valor Anticipo</ion-label>
+    <ion-input type="number" [(ngModel)]="viaje.valorAnticipo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Número Manifiesto</ion-label>
+    <ion-input type="text" [(ngModel)]="viaje.numeroManifiesto"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Número Cuenta</ion-label>
+    <ion-input type="text" [(ngModel)]="viaje.numeroCuenta"></ion-input>
   </ion-item>
 
   <ion-button (click)="guardar()">Guardar</ion-button>

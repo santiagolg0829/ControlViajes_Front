@@ -3,6 +3,7 @@ export class Viaje {
     fecha: Date;
     idCamion: number;
     idConductor: string;
+    idAuxiliar: string;
     idCliente: number;
     idOrigen: number;
     idDestino: number;

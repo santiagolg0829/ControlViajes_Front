@@ -1,5 +1,6 @@
 export class Usuario {
 
+    id: string;
     cedula: string;
     password: string;
     nombre: string;
