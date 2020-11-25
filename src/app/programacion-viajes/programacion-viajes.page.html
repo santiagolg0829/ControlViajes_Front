@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Programación Viajes
+    </ion-title>
+  </ion-toolbar>
+  <app-user-menu></app-user-menu>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <p-table #dt [columns]="cols" exportFilename="viajes" [value]="viajes"
+    styleClass="p-datatable-striped p-datatable-responsive-demo" [paginator]="true" [rows]="10"
+    [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
+    [rowsPerPageOptions]="[10,25,50]">
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <p-button label="Agregar Nuevo" icon="pi pi-plus" iconPos="left" (click)="mostrarModal(null)"></p-button>
+        <p-button label="Exportar a CSV" icon="pi pi-file-o" iconPos="left" (click)="dt.exportCSV()"></p-button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="nombre">Fecha <p-sortIcon field="fecha"></p-sortIcon></th>
+
+        <th pSortableColumn="activo">Conductor <p-sortIcon field="nombreConductor"></p-sortIcon></th>
+        
+        <th rowspan="2" class="action-column">Acciones</th>
+      </tr>
+      <tr>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'fecha', 'contains')"
+            placeholder="Buscar por Fecha" class="p-column-filter">
+        </th>
+        <th>
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombreConductor', 'contains')"
+            placeholder="Buscar por Conductor" class="p-column-filter">
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-viaje>
+      <tr>
+        <td><span class="p-column-title">Fecha </span>{{viaje.fecha}}</td>
+        <td><span class="p-column-title">Conductor </span>{{viaje.nombreConductor}}</td>
+        <td class="action-column">
+          <p-button label="Editar" icon="pi pi-pencil" iconPos="left" (click)="mostrarModal(viaje.id)"
+            class="primary-button">
+          </p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</ion-content>

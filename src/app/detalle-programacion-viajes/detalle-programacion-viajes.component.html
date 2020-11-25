@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="modal-title">
+        <span>Maestro Viajes</span>
+        <ion-button fill="clear" color="dark" (click)="dismiss(null)">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- <ion-item>
+    <ion-label>Cédula</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.cedula"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Correo Electrónico</ion-label>
+    <ion-input type="email" [(ngModel)]="usuario.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Celular</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.celular"></ion-input>
+  </ion-item> -->
+
+  <ion-item>
+    <ion-label>Cliente</ion-label>
+    <ionic-selectable #portComponent [(ngModel)]="cliente" [items]="clientes" itemValueField="id" itemTextField="nombre"
+      [canSearch]="true">
+      <ng-template ionicSelectableHeaderTemplate>
+        <ion-toolbar>
+          <ion-title>
+            <div class="modal-title">
+              <span>Clientes</span>
+              <ion-button fill="clear" color="dark" (click)="portComponent.close()">
+                <ion-icon name="close-circle" style="font-size: 24px;"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-title>
+        </ion-toolbar>
+      </ng-template>
+    </ionic-selectable>
+  </ion-item>
+
+  <ion-button (click)="guardar()">Guardar</ion-button>
+
+</ion-content>

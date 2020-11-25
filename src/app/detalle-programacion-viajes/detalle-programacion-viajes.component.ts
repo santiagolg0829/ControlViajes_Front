@@ -1,26 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ToastController, ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { Cliente } from '../clientes/cliente';
-import { Sede } from '../sedes/sede';
+import { Viaje } from '../programacion-viajes/viaje';
 import { GetService } from '../services/get/get.service';
 import { PostService } from '../services/post/post.service';
 import { PutService } from '../services/put/put.service';
-import { Usuario } from '../usuarios/usuario';
 
 @Component({
-  selector: 'app-detalle-usuario',
-  templateUrl: './detalle-usuario.component.html',
-  styleUrls: ['./detalle-usuario.component.scss'],
+  selector: 'app-detalle-programacion-viajes',
+  templateUrl: './detalle-programacion-viajes.component.html',
+  styleUrls: ['./detalle-programacion-viajes.component.scss'],
 })
-export class DetalleUsuarioComponent implements OnInit {
+export class DetalleProgramacionViajesComponent implements OnInit {
 
-  public usuario: Usuario;
-  public clientes: Cliente[];
-  private urlObtencion = "account/users";
-  private urlCreacion = "account/create";
-  private urlEdicion = "account/editUser";
+  public viaje: Viaje;
+  private url = "viajes";
   private urlClientes = "clientes";
-  public cliente: Cliente
+  public cliente: Cliente;
+  public clientes: Cliente[];
   @Input() id: string;
 
   constructor(private getService: GetService,
@@ -28,7 +25,7 @@ export class DetalleUsuarioComponent implements OnInit {
     private putService: PutService,
     public toastCtrl: ToastController,
     public modalCtrl: ModalController) {
-    this.usuario = new Usuario();
+    this.viaje = new Viaje();
     this.cliente = new Cliente();
     this.clientes = [];
   }
@@ -36,36 +33,24 @@ export class DetalleUsuarioComponent implements OnInit {
   ngOnInit() {
     this.obtenerClientes();
     if (this.id != null) {
-      this.getService.get(this.urlObtencion, this.id).subscribe(result => {
+      this.getService.get(this.url, this.id).subscribe(result => {
         if (result.success) {
-          this.usuario = result.message;
-          this.cliente = this.clientes.find(val => val.id !== this.usuario.idCliente);
+          this.viaje = result.message;
         }
       });
     }
-  }
-
-  obtenerClientes() {
-    this.getService.get(this.urlClientes).subscribe(async result => {
-      if (result.success) {
-        this.clientes = result.message;
-      } else {
-        this.showModalError(result.message);
-      }
-    });
   }
 
   async guardar() {
-    this.usuario.idCliente = this.cliente.id;
     if (this.id != null) {
-      this.actualizarUsuario();
+      this.actualizarviaje();
     } else {
-      this.crearUsuario();
+      this.crearviaje();
     }
   }
 
-  crearUsuario() {
-    this.postService.post(this.urlCreacion, this.usuario).subscribe(async result => {
+  crearviaje() {
+    this.postService.post(this.url, this.viaje).subscribe(async result => {
       const toast = await this.toastCtrl.create({
         message: result.message,
         position: "middle",
@@ -96,8 +81,8 @@ export class DetalleUsuarioComponent implements OnInit {
     });
   }
 
-  actualizarUsuario() {
-    this.putService.put(this.urlEdicion, this.id, this.usuario).subscribe(async result => {
+  actualizarviaje() {
+    this.putService.put(this.url, this.id, this.viaje).subscribe(async result => {
       const toast = await this.toastCtrl.create({
         message: result.message,
         position: "middle",
@@ -114,18 +99,12 @@ export class DetalleUsuarioComponent implements OnInit {
         this.dismiss(result);
       }
     }, async error => {
-      const toast = await this.toastCtrl.create({
-        message: error,
-        position: "middle",
-        color: "danger",
-        buttons: [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
+      this.showModalError(error);
     });
+  }
+
+  dismiss(result: any) {
+    this.modalCtrl.dismiss(result);
   }
 
   async showModalError(message: string){
@@ -143,9 +122,17 @@ export class DetalleUsuarioComponent implements OnInit {
     console.log(message);
   }
 
-
-  dismiss(result: any) {
-    this.modalCtrl.dismiss(result);
+  //servicios externos
+  obtenerClientes() {
+    this.getService.get(this.urlClientes).subscribe(async result => {
+      if (result.success) {
+        console.log(result.message);
+        this.clientes = result.message;
+      } else {
+        this.showModalError(result.message);
+      }
+    });
   }
+
 
 }

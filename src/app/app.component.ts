@@ -26,7 +26,12 @@ export class AppComponent {
     {
       title: 'Usuarios',
       url: '/usuarios',
-      icon: 'people'
+      icon: 'people-circle-outline'
+    },
+    {
+      title: 'Programación Viajes',
+      url: '/programacion-viajes',
+      icon: 'alarm-outline'
     }
   ];
 

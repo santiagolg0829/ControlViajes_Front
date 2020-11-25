@@ -38,8 +38,11 @@ const routes: Routes = [
   {
     path: 'sedes',
     loadChildren: () => import('./sedes/sedes.module').then(m => m.SedesPageModule)
+  },
+  {
+    path: 'programacion-viajes',
+    loadChildren: () => import('./programacion-viajes/programacion-viajes.module').then( m => m.ProgramacionViajesPageModule)
   }
-
 
 ];
 
