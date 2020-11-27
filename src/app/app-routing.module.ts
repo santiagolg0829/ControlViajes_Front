@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'programacion-viajes',
     loadChildren: () => import('./programacion-viajes/programacion-viajes.module').then( m => m.ProgramacionViajesPageModule)
+  },  {
+    path: 'mis-viajes',
+    loadChildren: () => import('./mis-viajes/mis-viajes.module').then( m => m.MisViajesPageModule)
   }
+
 
 ];
 

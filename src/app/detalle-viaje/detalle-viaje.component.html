@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>
       <div class="modal-title">
-        <span>Maestro Viajes</span>
+        <span>Detalle del Viaje</span>
         <ion-button fill="clear" color="dark" (click)="dismiss(null)">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
@@ -22,7 +22,7 @@
   <ion-item>
     <ion-label>Cliente</ion-label>
     <ionic-selectable #portComponent [(ngModel)]="cliente" [items]="clientes" itemValueField="id" itemTextField="nombre"
-      [canSearch]="true" (onChange)="obtenerOrigenesDestinos()">
+      [canSearch]="true">
       <ng-template ionicSelectableHeaderTemplate>
         <ion-toolbar>
           <ion-title>
@@ -148,6 +148,6 @@
     <ion-input type="text" [(ngModel)]="viaje.numeroCuenta"></ion-input>
   </ion-item>
 
-  <ion-button (click)="guardar()">Guardar</ion-button>
+  <ion-button (click)="acutalizarViaje()" >{{ viaje.estado == "Sin Iniciar" ? "Iniciar" : "Finalizar" }}</ion-button>
 
 </ion-content>

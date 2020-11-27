@@ -32,6 +32,11 @@ export class AppComponent {
       title: 'Programación Viajes',
       url: '/programacion-viajes',
       icon: 'alarm-outline'
+    },
+    {
+      title: 'Mis Viajes',
+      url: '/mis-viajes',
+      icon: 'earth-outline'
     }
   ];
 

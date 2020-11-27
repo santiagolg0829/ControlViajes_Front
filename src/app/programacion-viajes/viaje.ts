@@ -3,6 +3,7 @@ export class Viaje {
     fecha: Date;
     idCamion: number;
     idConductor: string;
+    idAuxiliar: string;
     idCliente: number;
     idOrigen: number;
     idDestino: number;
@@ -17,7 +18,8 @@ export class Viaje {
     nombreAuxiliar: string;
     nombreCliente: string;
     nombreOrigen: string;
-    nombreDestino: string;    
+    nombreDestino: string;   
+    estado: string; 
 
     constructor() {
         this.id = 0;

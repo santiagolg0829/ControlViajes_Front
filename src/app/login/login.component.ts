@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         this.storage.set('expiration', result.expiration);
         this.storage.set('nombre', result.nombre);
         this.loginForm.reset();
-        this.router.navigate(['/usuarios']);
+        this.router.navigate(['/mis-viajes']);
       } else {
         const toast = await this.toastCtrl.create({
           message: result.message,
