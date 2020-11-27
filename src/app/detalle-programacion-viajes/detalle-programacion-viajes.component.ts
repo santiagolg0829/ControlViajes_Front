@@ -19,10 +19,10 @@ export class DetalleProgramacionViajesComponent extends genericService implement
 
   public viaje: Viaje;
   private url = "viajes";
-  // private urlClientes = "clientes";
-  // private urlCamiones = "camiones";
-  // private urlConductores = "account/listarPorRol/conductor"
-  // private urlAuxiliares = "account/listarPorRol/auxiliar"
+  private urlClientes = "clientes";
+  private urlCamiones = "camiones";
+  private urlConductores = "account/listarPorRol/conductor"
+  private urlAuxiliares = "account/listarPorRol/auxiliar"
   private urlOrigenDestinoCliente = "sedes/PorCliente/"
 
   public fecha: Date;
@@ -62,10 +62,10 @@ export class DetalleProgramacionViajesComponent extends genericService implement
   }
 
   ngOnInit() {
-    // this.obtenerClientes();
-    // this.obtenerCamiones();
-    // this.obtenerConductores();
-    // this.obtenerAuxiliares();
+    this.obtenerClientes();
+    this.obtenerCamiones();
+    this.obtenerConductores();
+    this.obtenerAuxiliares();
 
     if (this.id != null) {
       super.consumirGet(this.url + "/" + this.id).then((data:any)=>{
@@ -161,46 +161,46 @@ export class DetalleProgramacionViajesComponent extends genericService implement
     console.log(message);
   }
 
-  // //servicios externos
-  // obtenerClientes() {
-  //   this.getService.get(this.urlClientes).subscribe(async result => {
-  //     if (result.success) {
-  //       this.clientes = result.message;
-  //     } else {
-  //       this.showModalError(result.message);
-  //     }
-  //   });
-  // }
+  //servicios externos
+  obtenerClientes() {
+    this.getService.get(this.urlClientes).subscribe(async result => {
+      if (result.success) {
+        this.clientes = result.message;
+      } else {
+        this.showModalError(result.message);
+      }
+    });
+  }
 
-  // obtenerCamiones() {
-  //   this.getService.get(this.urlCamiones).subscribe(async result => {
-  //     if (result.success) {
-  //       this.camiones = result.message;
-  //     } else {
-  //       this.showModalError(result.message);
-  //     }
-  //   });
-  // }
+  obtenerCamiones() {
+    this.getService.get(this.urlCamiones).subscribe(async result => {
+      if (result.success) {
+        this.camiones = result.message;
+      } else {
+        this.showModalError(result.message);
+      }
+    });
+  }
 
-  // obtenerConductores() {
-  //   this.getService.get(this.urlConductores).subscribe(async result => {
-  //     if (result.success) {
-  //       this.conductores = result.message;
-  //     } else {
-  //       this.showModalError(result.message);
-  //     }
-  //   });
-  // }
+  obtenerConductores() {
+    this.getService.get(this.urlConductores).subscribe(async result => {
+      if (result.success) {
+        this.conductores = result.message;
+      } else {
+        this.showModalError(result.message);
+      }
+    });
+  }
 
-  // obtenerAuxiliares() {
-  //   this.getService.get(this.urlAuxiliares).subscribe(async result => {
-  //     if (result.success) {
-  //       this.auxiliares = result.message;
-  //     } else {
-  //       this.showModalError(result.message);
-  //     }
-  //   });
-  // }
+  obtenerAuxiliares() {
+    this.getService.get(this.urlAuxiliares).subscribe(async result => {
+      if (result.success) {
+        this.auxiliares = result.message;
+      } else {
+        this.showModalError(result.message);
+      }
+    });
+  }
 
   obtenerOrigenesDestinos() {
     console.log(this.urlOrigenDestinoCliente + this.cliente.id);
