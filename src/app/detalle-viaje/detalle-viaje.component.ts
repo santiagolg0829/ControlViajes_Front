@@ -70,9 +70,10 @@ export class DetalleViajeComponent extends genericService implements OnInit {
         this.camion = data.camion;
         this.conductor = data.conductor;
         this.auxiliar = data.auxiliar;
-        this.origen = data.sedeOrigen;
+        this.origen = data.sedeOrigen;        
         this.destino = data.sedeDestino;
         this.fecha = data.fecha;
+        this.destino.nombre = data.sedeOrigen.direccion;
         this.habilidato = this.viaje.estado === "Finalizado" ? true : false;
       });     
     }

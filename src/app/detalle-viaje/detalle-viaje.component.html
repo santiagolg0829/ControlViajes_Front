@@ -22,7 +22,7 @@
   <ion-item>
     <ion-label>Cliente</ion-label>
     <ionic-selectable #portComponent [(ngModel)]="cliente" [items]="clientes" itemValueField="id" itemTextField="nombre"
-      [canSearch]="true" (onChange)="obtenerOrigenesDestinos()">
+      [canSearch]="true">
       <ng-template ionicSelectableHeaderTemplate>
         <ion-toolbar>
           <ion-title>
