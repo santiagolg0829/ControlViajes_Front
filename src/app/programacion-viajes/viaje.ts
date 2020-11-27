@@ -18,7 +18,8 @@ export class Viaje {
     nombreAuxiliar: string;
     nombreCliente: string;
     nombreOrigen: string;
-    nombreDestino: string;    
+    nombreDestino: string;   
+    estado: string; 
 
     constructor() {
         this.id = 0;

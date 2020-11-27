@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Programación Viajes
+      Mis Viajes
     </ion-title>
   </ion-toolbar>
   <app-user-menu></app-user-menu>
@@ -16,24 +16,18 @@
     styleClass="p-datatable-striped p-datatable-responsive-demo" [paginator]="true" [rows]="10"
     [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
     [rowsPerPageOptions]="[10,25,50]">
-    <ng-template pTemplate="caption">
-      <div class="p-d-flex">
-        <p-button label="Agregar Nuevo" icon="pi pi-plus" iconPos="left" (click)="mostrarModal(null)"></p-button>
-        <p-button label="Exportar a CSV" icon="pi pi-file-o" iconPos="left" (click)="dt.exportCSV()"></p-button>
-      </div>
-    </ng-template>
+
     <ng-template pTemplate="header">
       <tr>
-
         <th pSortableColumn="Fecha">Fecha <p-sortIcon field="fecha"></p-sortIcon></th>
         <th pSortableColumn="Placa">Placa <p-sortIcon field="placa"></p-sortIcon></th>
-        <th pSortableColumn="Conductor">Conductor <p-sortIcon field="nombreConductor"></p-sortIcon></th>
+
         <th pSortableColumn="Auxiliar">Auxiliar <p-sortIcon field="nombreAuxiliar"></p-sortIcon></th>
         <th pSortableColumn="Cliente">Cliente <p-sortIcon field="nombreCliente"></p-sortIcon></th>
         <th pSortableColumn="Origen">Origen <p-sortIcon field="nombreOrigen"></p-sortIcon></th>
         <th pSortableColumn="Destino">Destino <p-sortIcon field="nombreDestino"></p-sortIcon></th>
-        <th pSortableColumn="Desfase">Desfase <p-sortIcon field="desfase"></p-sortIcon></th>
-        
+        <th pSortableColumn="Destino">Estado <p-sortIcon field="estado"></p-sortIcon></th>
+
         <th rowspan="2" class="action-column">Acciones</th>
       </tr>
       <tr>
@@ -45,10 +39,7 @@
           <input pInputText type="text" (input)="dt.filter($event.target.value, 'placa', 'contains')"
             placeholder="Buscar por Placa" class="p-column-filter">
         </th>
-        <th>
-          <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombreConductor', 'contains')"
-            placeholder="Buscar por Conductor" class="p-column-filter">
-        </th>
+
         <th>
           <input pInputText type="text" (input)="dt.filter($event.target.value, 'nombreAuxiliar', 'contains')"
             placeholder="Buscar por Auxiliar" class="p-column-filter">
@@ -66,24 +57,25 @@
             placeholder="Buscar por Destino" class="p-column-filter">
         </th>
         <th>
-          <input pInputText type="text" (input)="dt.filter($event.target.value, 'desfase', 'contains')"
-            placeholder="Buscar por Desfase" class="p-column-filter">
+          <input pInputText type="text" (input)="dt.filter($event.target.value, 'estado', 'contains')"
+            placeholder="Buscar por Estado" class="p-column-filter">
         </th>
+
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-viaje>
       <tr>
         <td><span class="p-column-title">Fecha </span>{{viaje.fecha | date: 'dd/MM/yyyy h:mm'}}</td>
         <td><span class="p-column-title">Placa </span>{{viaje.placa}}</td>
-        <td><span class="p-column-title">Conductor </span>{{viaje.nombreConductor}}</td>
+
         <td><span class="p-column-title">Auxiliar </span>{{viaje.nombreAuxiliar}}</td>
         <td><span class="p-column-title">Cliente </span>{{viaje.nombreCliente}}</td>
         <td><span class="p-column-title">Origen </span>{{viaje.nombreOrigen}}</td>
         <td><span class="p-column-title">Destino </span>{{viaje.nombreDestino}}</td>
-        <td><span class="p-column-title">Desfase </span>{{viaje.desfase}}</td>
+        <td><span class="p-column-title">Estado </span>{{viaje.estado}}</td>
 
         <td class="action-column">
-          <p-button label="Editar" icon="pi pi-pencil" iconPos="left" (click)="mostrarModal(viaje.id)"
+          <p-button label="Ver" icon="pi pi-pencil" iconPos="left" (click)="mostrarModal(viaje.id)"
             class="primary-button">
           </p-button>
         </td>

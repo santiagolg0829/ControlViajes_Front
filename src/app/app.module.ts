@@ -26,6 +26,7 @@ import { IonicSelectableModule } from 'ionic-selectable';
 import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
 import { UserMenuComponentModule } from './user-menu/user-menu.module';
 import { DetalleProgramacionViajesComponent } from './detalle-programacion-viajes/detalle-programacion-viajes.component';
+import { DetalleViajeComponent } from './detalle-viaje/detalle-viaje.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DetalleProgramacionViajesComponent } from './detalle-programacion-viaje
     DetalleClienteComponent,
     DetalleUsuarioComponent,
     CambiarPasswordComponent,
-    DetalleProgramacionViajesComponent
+    DetalleProgramacionViajesComponent,
+    DetalleViajeComponent
   ],
   entryComponents: [
     DetalleCamionComponent,
@@ -44,7 +46,8 @@ import { DetalleProgramacionViajesComponent } from './detalle-programacion-viaje
     DetalleClienteComponent,
     DetalleUsuarioComponent,
     CambiarPasswordComponent,
-    DetalleProgramacionViajesComponent
+    DetalleProgramacionViajesComponent,
+    DetalleViajeComponent
   ],
   imports: [
     BrowserModule,
