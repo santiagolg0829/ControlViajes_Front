@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController, ModalController } from '@ionic/angular';
 import { PostService } from '../services/post/post.service';
+import { GenericService } from '../utils/genericService';
 
 @Component({
   selector: 'app-cambiar-password',
   templateUrl: './cambiar-password.component.html',
   styleUrls: ['./cambiar-password.component.scss'],
 })
-export class CambiarPasswordComponent implements OnInit {
+export class CambiarPasswordComponent extends GenericService implements OnInit {
 
   public newPassword: string;
   public oldPassword: string;
   public confirmPassword: string;
   public url = "Account/ChangePassword";
-
-  constructor(
+  
+  constructor(public postService: PostService,
     public toastCtrl: ToastController,
-    public modalCtrl: ModalController,
-    public postService: PostService) {
+    public modalCtrl: ModalController) {
+    super(null, postService, null, toastCtrl, modalCtrl);
     this.confirmPassword = "";
     this.newPassword = "";
     this.oldPassword = "";
+    
   }
 
   ngOnInit() { }
@@ -31,35 +33,7 @@ export class CambiarPasswordComponent implements OnInit {
       "newPassword": this.newPassword,
       "confirmPassword": this.confirmPassword
     };
-    this.postService.post(this.url, object).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      }
-    }, async error => {
-      const toast = await this.toastCtrl.create({
-        message: error,
-        position: "middle",
-        color: "danger",
-        buttons: [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-    });
+    super.consumirPost(this.url, object).then((data:any)=>{});
   }
 
   dismiss(result: any) {

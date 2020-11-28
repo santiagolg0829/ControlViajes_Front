@@ -4,32 +4,32 @@ import { Camion } from '../camiones/camion';
 import { GetService } from '../services/get/get.service';
 import { PostService } from '../services/post/post.service';
 import { PutService } from '../services/put/put.service';
+import { GenericService } from '../utils/genericService';
 
 @Component({
   selector: 'app-detalle-camion',
   templateUrl: './detalle-camion.component.html',
   styleUrls: ['./detalle-camion.component.scss'],
 })
-export class DetalleCamionComponent implements OnInit {
+export class DetalleCamionComponent extends GenericService implements OnInit {
 
   public camion: Camion;
   private url = "camiones";
   @Input() id: string;
 
-  constructor(private getService: GetService,
-    private postService: PostService,
-    private putService: PutService,
+  constructor(public getService: GetService,
+    public postService: PostService,
+    public putService: PutService,
     public toastCtrl: ToastController,
     public modalCtrl: ModalController) {
-    this.camion = new Camion();
-  }
+    super(getService, postService, putService, toastCtrl, modalCtrl);
+    this.camion = new Camion();    
+  }  
 
   ngOnInit() {
     if (this.id != null) {
-      this.getService.get(this.url, this.id).subscribe(result => {
-        if (result.success) {
-          this.camion = result.message;
-        }
+      super.consumirGet(this.url, this.id).then((data:any)=>{
+        this.camion = data;
       });
     }
   }
@@ -43,71 +43,15 @@ export class DetalleCamionComponent implements OnInit {
   }
 
   crearCamion() {
-    this.postService.post(this.url, this.camion).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      }
-    }, async error => {
-      const toast = await this.toastCtrl.create({
-        message: error,
-        position: "middle",
-        color: "danger",
-        buttons: [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
+    super.consumirPost(this.url, this.camion).then((data:any)=>{
+      this.camion = data;
     });
   }
 
   actualizarCamion() {
-    this.putService.put(this.url, this.id, this.camion).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      }
-    }, async error => {
-      const toast = await this.toastCtrl.create({
-        message: error,
-        position: "middle",
-        color: "danger",
-        buttons: [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
+    super.consumirPut(this.url, this.id, this.camion).then((data:any)=>{
+      this.camion = data;
     });
-  }
-
-  dismiss(result: any) {
-    this.modalCtrl.dismiss(result);
   }
 
 }

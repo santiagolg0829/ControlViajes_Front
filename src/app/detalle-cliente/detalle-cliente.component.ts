@@ -1,39 +1,38 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ToastController, ModalController } from '@ionic/angular';
 import { Cliente } from '../clientes/cliente';
-import { DetalleSedeComponent } from '../detalle-sede/detalle-sede.component';
 import { Sede } from '../sedes/sede';
 import { GetService } from '../services/get/get.service';
 import { PostService } from '../services/post/post.service';
 import { PutService } from '../services/put/put.service';
 import { OverlayEventDetail } from '@ionic/core';
+import { GenericService } from '../utils/genericService';
 
 @Component({
   selector: 'app-detalle-cliente',
   templateUrl: './detalle-cliente.component.html',
   styleUrls: ['./detalle-cliente.component.scss'],
 })
-export class DetalleClienteComponent implements OnInit {
+export class DetalleClienteComponent extends GenericService implements OnInit {
 
   public cliente: Cliente;
   private url = "clientes";
   public statuses: any[];
   @Input() id: string;
 
-  constructor(private getService: GetService,
-    private postService: PostService,
-    private putService: PutService,
+  constructor(public getService: GetService,
+    public postService: PostService,
+    public putService: PutService,
     public toastCtrl: ToastController,
     public modalCtrl: ModalController) {
+    super(getService, postService, putService, toastCtrl, modalCtrl);
     this.cliente = new Cliente();
   }
 
   ngOnInit() {
     if (this.id != null) {
-      this.getService.get(this.url, this.id).subscribe(result => {
-        if (result.success) {
-          this.cliente = result.message;
-        }
+      super.consumirGet(this.url, this.id).then((data:any)=>{
+        this.cliente = data;
       });
     }
     this.statuses = [
@@ -51,71 +50,14 @@ export class DetalleClienteComponent implements OnInit {
   }
 
   crearCliente() {
-    this.postService.post(this.url, this.cliente).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      }
-    }, async error => {
-      const toast = await this.toastCtrl.create({
-        message: error,
-        position: "middle",
-        color: "danger",
-        buttons: [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
+    super.consumirPost(this.url, this.cliente).then((data:any)=>{
+      this.cliente = data;
     });
   }
 
   actualizarCliente() {
-    this.putService.put(this.url, this.id, this.cliente).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      }
-    }, async error => {
-      const toast = await this.toastCtrl.create({
-        message: error,
-        position: "middle",
-        color: "danger",
-        buttons: [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
+    super.consumirPut(this.url, this.id, this.cliente).then((data:any)=>{
     });
-  }
-
-  dismiss(result: any) {
-    this.modalCtrl.dismiss(result);
   }
   
   eliminarSede(sede: Sede) {
@@ -124,7 +66,6 @@ export class DetalleClienteComponent implements OnInit {
 
   async agregarSede() {
     this.cliente.lstSedes.push(new Sede());
-
   }
 
 }

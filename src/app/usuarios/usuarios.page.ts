@@ -4,32 +4,29 @@ import { DetalleUsuarioComponent } from '../detalle-usuario/detalle-usuario.comp
 import { GetService } from '../services/get/get.service';
 import { Usuario } from './usuario';
 import { OverlayEventDetail } from '@ionic/core';
+import { PutService } from '../services/put/put.service';
+import { PostService } from '../services/post/post.service';
+import { GenericService } from '../utils/genericService';
 
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.page.html',
   styleUrls: ['./usuarios.page.scss'],
 })
-export class UsuariosPage implements OnInit {
+export class UsuariosPage  extends GenericService implements OnInit {
 
   public usuarios: Usuario[];
   public cols: any[];
   public statuses: any[];
   private url = "Account/users";
   
-  constructor(private getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController) {
-    this.usuarios = [];
-    this.statuses = [
-      { label: 'Activo', value: 'true' },
-      { label: 'Inactivo', value: 'false' },
-    ];
-    this.cols = [
-      { field: 'nombre', header: 'Nombre' },
-      { field: 'email', header: 'Correo Electronico' },
-      { field: 'celular', header: 'Celular' },
-      { field: 'cliente', header: 'Cliente' },
-      { field: 'activo', header: 'Estado' }
-    ];
+  constructor(public getService: GetService,
+    public postService: PostService,
+    public putService: PutService,
+    public toastCtrl: ToastController,
+    public modalCtrl: ModalController) {
+    super(getService, postService, putService, toastCtrl, modalCtrl);
+    this.usuarios = []
   }
 
   ngOnInit() {
@@ -37,22 +34,8 @@ export class UsuariosPage implements OnInit {
   }
 
   obtenerUsarios() {
-    this.getService.get(this.url).subscribe(async result => {
-      if (result.success) {
-        this.usuarios = result.message;
-      } else {
-        const toast = await this.toastCtrl.create({
-          message: result.message,
-          position: "middle",
-          buttons: [{
-            text: 'Aceptar',
-            role: 'cancel',
-          }
-          ]
-        });
-        toast.present();
-        console.log(result.message);
-      }
+    super.consumirGet(this.url).then((data:any)=>{
+      this.usuarios = data;
     });
   }
 

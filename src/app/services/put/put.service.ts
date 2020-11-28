@@ -20,7 +20,7 @@ export class PutService {
     let reqHeader = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.put(this.baseUrl + url + "/" + id, object, { headers: reqHeader });
+    return this.http.put(this.baseUrl + url + "/" + ( id==null ? "": id ) , object, { headers: reqHeader });
   }
 
 }

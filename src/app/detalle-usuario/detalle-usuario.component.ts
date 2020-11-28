@@ -1,18 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ToastController, ModalController } from '@ionic/angular';
 import { Cliente } from '../clientes/cliente';
-import { Sede } from '../sedes/sede';
 import { GetService } from '../services/get/get.service';
 import { PostService } from '../services/post/post.service';
 import { PutService } from '../services/put/put.service';
 import { Usuario } from '../usuarios/usuario';
+import { GenericService } from '../utils/genericService';
 
 @Component({
   selector: 'app-detalle-usuario',
   templateUrl: './detalle-usuario.component.html',
   styleUrls: ['./detalle-usuario.component.scss'],
 })
-export class DetalleUsuarioComponent implements OnInit {
+export class DetalleUsuarioComponent extends GenericService implements OnInit {
 
   public usuario: Usuario;
   public clientes: Cliente[];
@@ -23,11 +23,12 @@ export class DetalleUsuarioComponent implements OnInit {
   public cliente: Cliente
   @Input() id: string;
 
-  constructor(private getService: GetService,
-    private postService: PostService,
-    private putService: PutService,
+  constructor(public getService: GetService,
+    public postService: PostService,
+    public putService: PutService,
     public toastCtrl: ToastController,
     public modalCtrl: ModalController) {
+    super(getService, postService, putService, toastCtrl, modalCtrl);
     this.usuario = new Usuario();
     this.cliente = new Cliente();
     this.clientes = [];
@@ -36,22 +37,16 @@ export class DetalleUsuarioComponent implements OnInit {
   ngOnInit() {
     this.obtenerClientes();
     if (this.id != null) {
-      this.getService.get(this.urlObtencion, this.id).subscribe(result => {
-        if (result.success) {
-          this.usuario = result.message;
+      super.consumirGet(this.urlObtencion, this.id).then((data:any)=>{
+        this.usuario = data;
           this.cliente = this.clientes.find(val => val.id !== this.usuario.idCliente);
-        }
       });
     }
   }
 
   obtenerClientes() {
-    this.getService.get(this.urlClientes).subscribe(async result => {
-      if (result.success) {
-        this.clientes = result.message;
-      } else {
-        this.showModalError(result.message);
-      }
+    super.consumirGet(this.urlClientes).then((data:any)=>{
+      this.clientes = data;
     });
   }
 
@@ -64,88 +59,13 @@ export class DetalleUsuarioComponent implements OnInit {
     }
   }
 
-  crearUsuario() {
-    this.postService.post(this.urlCreacion, this.usuario).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      }
-    }, async error => {
-      const toast = await this.toastCtrl.create({
-        message: error,
-        position: "middle",
-        color: "danger",
-        buttons: [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
+  crearUsuario() {    
+    super.consumirPost(this.urlCreacion, this.usuario).then((data:any)=>{
     });
   }
 
   actualizarUsuario() {
-    this.putService.put(this.urlEdicion, this.id, this.usuario).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      }
-    }, async error => {
-      const toast = await this.toastCtrl.create({
-        message: error,
-        position: "middle",
-        color: "danger",
-        buttons: [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-    });
+    super.consumirPut(this.urlEdicion, this.id, this.usuario).then((data:any)=>{
+    });    
   }
-
-  async showModalError(message: string){
-    const toast = await this.toastCtrl.create({
-      message: message,
-      position: "middle",
-      color: "danger",
-      buttons: [{
-        text: 'Aceptar',
-        role: 'cancel',
-      }
-      ]
-    });
-    toast.present();
-    console.log(message);
-  }
-
-
-  dismiss(result: any) {
-    this.modalCtrl.dismiss(result);
-  }
-
 }
