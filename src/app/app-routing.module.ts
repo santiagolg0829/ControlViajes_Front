@@ -45,6 +45,10 @@ const routes: Routes = [
   },  {
     path: 'mis-viajes',
     loadChildren: () => import('./mis-viajes/mis-viajes.module').then( m => m.MisViajesPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   }
 
 

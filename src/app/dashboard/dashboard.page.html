@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Dashboard
+    </ion-title>
+  </ion-toolbar>
+  <app-user-menu></app-user-menu>
+</ion-header>
+
+<ion-content>
+  <p-chart type="pie" [data]="data" width="40vw" height="80vh"></p-chart>
+</ion-content>

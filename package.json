@@ -13,6 +13,7 @@
     "@angular/platform-browser-dynamic": "10.2.2",
     "@angular/router": "10.2.2",
     "@ionic-native/core": "5.28.0",
+    "@ionic-native/firebase-x": "^5.30.0",
     "@ionic-native/splash-screen": "5.28.0",
     "@ionic-native/status-bar": "5.28.0",
     "@ionic/angular": "5.3.1",
@@ -21,7 +22,7 @@
     "@types/jasmine": "3.5.13",
     "@types/jasminewd2": "2.0.8",
     "@types/node": "12.12.54",
-    "cordova-android": "9.0.0",
+    "chart.js": "^2.9.4",
     "font-awesome": "^4.7.0",
     "ionic-selectable": "^4.7.1",
     "primeicons": "^4.0.0",
@@ -40,10 +41,16 @@
     "@angular/cli": "~10.2.0",
     "@angular/compiler-cli": "~10.2.2",
     "@angular/language-service": "~10.2.2",
+    "@havesource/cordova-plugin-push": "^1.0.0",
+    "@ionic/lab": "^3.2.9",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "cordova-android": "^9.0.0",
     "cordova-browser": "^6.0.0",
+    "cordova-plugin-androidx": "^3.0.0",
+    "cordova-plugin-androidx-adapter": "^1.1.3",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-firebasex": "^11.0.3",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -60,7 +67,18 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "havesource-cordova-plugin-push": {
+        "ANDROID_SUPPORT_V13_VERSION": "28.0.0",
+        "FCM_VERSION": "18.+"
+      },
+      "cordova-plugin-firebasex": {
+        "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "false",
+        "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "false",
+        "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "false"
+      },
+      "cordova-plugin-androidx": {},
+      "cordova-plugin-androidx-adapter": {}
     },
     "platforms": [
       "browser",

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "499342453222",
+    "firebase_url": "https://control-viajes-71224.firebaseio.com",
+    "project_id": "control-viajes-71224",
+    "storage_bucket": "control-viajes-71224.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499342453222:android:d28fea0f326a0bfa1fce27",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499342453222-4ta4lgcle3l61tgm7ir40ak00pgvh9u9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGtX1kJxKCOT5ytbqazJEwAoWJewzPHmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499342453222-4ta4lgcle3l61tgm7ir40ak00pgvh9u9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

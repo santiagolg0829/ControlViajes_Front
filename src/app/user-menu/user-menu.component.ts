@@ -27,8 +27,10 @@ export class UserMenuComponent implements OnInit {
   }
 
   logout() {
-    this.storage.clear();
-    this.router.navigate(['/login']);
+    this.storage.clear().then(result => {
+      this.router.navigate(['/login']);
+    });
+
   }
 
   async mostrarModal() {

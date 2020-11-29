@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
+
 
   login(loginForm: any) {
     this.postService.post(this.url, loginForm).subscribe(async result => {
@@ -42,7 +44,7 @@ export class LoginComponent implements OnInit {
         this.storage.set('expiration', result.expiration);
         this.storage.set('nombre', result.nombre);
         this.loginForm.reset();
-        this.router.navigate(['/mis-viajes']);
+        this.router.navigate(['/dashboard']);
       } else {
         const toast = await this.toastCtrl.create({
           message: result.message,
@@ -58,7 +60,7 @@ export class LoginComponent implements OnInit {
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
-        message: error,
+        message: error.message,
         position: "middle",
         color: "danger",
         buttons: [{

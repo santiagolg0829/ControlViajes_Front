@@ -28,6 +28,9 @@ import { UserMenuComponentModule } from './user-menu/user-menu.module';
 import { DetalleProgramacionViajesComponent } from './detalle-programacion-viajes/detalle-programacion-viajes.component';
 import { DetalleViajeComponent } from './detalle-viaje/detalle-viaje.component';
 
+import { FirebaseX } from "@ionic-native/firebase-x/ngx";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +71,7 @@ import { DetalleViajeComponent } from './detalle-viaje/detalle-viaje.component';
   providers: [
     StatusBar,
     SplashScreen,
+    FirebaseX,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],

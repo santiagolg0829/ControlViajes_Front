@@ -10,3 +10,20 @@ ion-fab{
         white-space: pre-wrap !important;
     }
 }
+
+@media (max-width: 700px) {
+  .username{
+      display: none;
+  }
+  ion-fab-button{
+    width: 50px !important;
+    background-color: transparent !important;
+  }
+  ion-fab-list{
+    width: 250px;
+    ion-fab-button{
+        width: 250px !important;
+    }
+  }
+
+}

@@ -37,6 +37,10 @@
     }
 }
 
+ion-header ion-toolbar:first-of-type {
+    padding-top: 0;
+}
+
 
 // Estilos de botones
 .primary-button{

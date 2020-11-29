@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Router } from '@angular/router';
+
+import { FirebaseX } from "@ionic-native/firebase-x/ngx";
 
 @Component({
   selector: 'app-root',
@@ -26,17 +27,22 @@ export class AppComponent {
     {
       title: 'Usuarios',
       url: '/usuarios',
-      icon: 'people-circle-outline'
+      icon: 'people-circle'
     },
     {
       title: 'Programación Viajes',
       url: '/programacion-viajes',
-      icon: 'alarm-outline'
+      icon: 'alarm'
     },
     {
       title: 'Mis Viajes',
       url: '/mis-viajes',
-      icon: 'earth-outline'
+      icon: 'earth'
+    },
+    {
+      title: 'Dashboard',
+      url: '/dashboard',
+      icon: 'bar-chart'
     }
   ];
 
@@ -44,7 +50,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private menu: MenuController
+    private menu: MenuController,
+    private firebase: FirebaseX
   ) {
     this.initializeApp();
   }
@@ -53,6 +60,8 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.firebase.getToken().then(token => console.log(`The token is ${token}`))
+      this.firebase.onMessageReceived().subscribe(data => console.log(`FCM message: ${data}`));
     });
   }
 
