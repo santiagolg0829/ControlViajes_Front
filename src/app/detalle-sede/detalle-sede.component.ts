@@ -16,6 +16,7 @@ export class DetalleSedeComponent implements OnInit {
   public sede: Sede;
   private url = "sedes";
   @Input() id: string;
+  public clicked: boolean;
 
   constructor(private getService: GetService,
     private postService: PostService,
@@ -23,6 +24,7 @@ export class DetalleSedeComponent implements OnInit {
     public toastCtrl: ToastController,
     public modalCtrl: ModalController) {
     this.sede = new Sede();
+    this.clicked = false;
   }
 
   ngOnInit() {
@@ -36,6 +38,7 @@ export class DetalleSedeComponent implements OnInit {
   }
 
   async guardar() {
+    this.clicked = true;
     if (this.id != null) {
       this.actualizarSede();
     } else {
@@ -59,6 +62,8 @@ export class DetalleSedeComponent implements OnInit {
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
@@ -72,6 +77,7 @@ export class DetalleSedeComponent implements OnInit {
         ]
       });
       toast.present();
+      this.clicked = false;
     });
   }
 
@@ -91,6 +97,8 @@ export class DetalleSedeComponent implements OnInit {
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
@@ -104,6 +112,7 @@ export class DetalleSedeComponent implements OnInit {
         ]
       });
       toast.present();
+      this.clicked = false;
     });
   }
 

@@ -21,9 +21,10 @@ export class DetalleProgramacionViajesComponent extends genericService implement
   private url = "viajes";
   private urlClientes = "clientes";
   private urlCamiones = "camiones";
-  private urlConductores = "account/listarPorRol/conductor"
-  private urlAuxiliares = "account/listarPorRol/auxiliar"
-  private urlOrigenDestinoCliente = "sedes/PorCliente/"
+  private urlConductores = "account/listarPorRol/conductor";
+  private urlAuxiliares = "account/listarPorRol/auxiliar";
+  private urlOrigenDestinoCliente = "sedes/PorCliente/";
+  public clicked: boolean;
 
   public fecha: Date;
   //Externos 
@@ -50,7 +51,7 @@ export class DetalleProgramacionViajesComponent extends genericService implement
     public putService: PutService,
     public toastCtrl: ToastController,
     public modalCtrl: ModalController) {
-    super(getService, postService, putService,toastCtrl,modalCtrl);
+    super(getService, postService, putService, toastCtrl, modalCtrl);
     this.viaje = new Viaje();
     this.cliente = new Cliente();
     this.camion = new Camion();
@@ -58,7 +59,8 @@ export class DetalleProgramacionViajesComponent extends genericService implement
     this.auxiliar = new Usuario();
     this.origen = new Sede();
     this.destino = new Sede();
-    
+    this.clicked = false;
+
   }
 
   ngOnInit() {
@@ -68,7 +70,7 @@ export class DetalleProgramacionViajesComponent extends genericService implement
     this.obtenerAuxiliares();
 
     if (this.id != null) {
-      super.consumirGet(this.url + "/" + this.id).then((data:any)=>{
+      super.consumirGet(this.url + "/" + this.id).then((data: any) => {
         this.viaje = data;
         this.cliente = data.cliente;
         this.camion = data.camion;
@@ -77,11 +79,12 @@ export class DetalleProgramacionViajesComponent extends genericService implement
         this.origen = data.sedeOrigen;
         this.destino = data.sedeDestino;
         this.fecha = data.fecha;
-      });     
+      });
     }
   }
 
   async guardar() {
+    this.clicked = true;
     if (this.id != null) {
       this.actualizarviaje();
     } else {
@@ -90,7 +93,7 @@ export class DetalleProgramacionViajesComponent extends genericService implement
   }
 
   crearviaje() {
-    
+
     this.viaje.idCliente = this.cliente.id;
     this.viaje.idOrigen = this.origen.id;
     this.viaje.idDestino = this.destino.id;
@@ -114,9 +117,12 @@ export class DetalleProgramacionViajesComponent extends genericService implement
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       this.showModalError(error);
+      this.clicked = false;
     });
   }
 
@@ -136,9 +142,12 @@ export class DetalleProgramacionViajesComponent extends genericService implement
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       this.showModalError(error);
+      this.clicked = false;
     });
   }
 
@@ -146,7 +155,7 @@ export class DetalleProgramacionViajesComponent extends genericService implement
     this.modalCtrl.dismiss(result);
   }
 
-  async showModalError(message: string){
+  async showModalError(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
       position: "middle",

@@ -28,6 +28,6 @@
     <ion-checkbox [(ngModel)]="sede.activo"></ion-checkbox>
   </ion-item>
 
-  <ion-button (click)="guardar()">Guardar</ion-button>
+  <ion-button (click)="guardar()" [disabled]="clicked">Guardar</ion-button>
 
 </ion-content>

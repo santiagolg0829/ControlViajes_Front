@@ -22,6 +22,7 @@ export class DetalleUsuarioComponent implements OnInit {
   private urlClientes = "clientes";
   public cliente: Cliente
   @Input() id: string;
+  public clicked: boolean;
 
   constructor(private getService: GetService,
     private postService: PostService,
@@ -31,6 +32,7 @@ export class DetalleUsuarioComponent implements OnInit {
     this.usuario = new Usuario();
     this.cliente = new Cliente();
     this.clientes = [];
+    this.clicked = false;
   }
 
   ngOnInit() {
@@ -56,6 +58,7 @@ export class DetalleUsuarioComponent implements OnInit {
   }
 
   async guardar() {
+    this.clicked = false;
     this.usuario.idCliente = this.cliente.id;
     if (this.id != null) {
       this.actualizarUsuario();
@@ -80,6 +83,8 @@ export class DetalleUsuarioComponent implements OnInit {
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
@@ -93,6 +98,7 @@ export class DetalleUsuarioComponent implements OnInit {
         ]
       });
       toast.present();
+      this.clicked = false;
     });
   }
 
@@ -112,6 +118,8 @@ export class DetalleUsuarioComponent implements OnInit {
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
@@ -125,10 +133,11 @@ export class DetalleUsuarioComponent implements OnInit {
         ]
       });
       toast.present();
+      this.clicked = false;
     });
   }
 
-  async showModalError(message: string){
+  async showModalError(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
       position: "middle",

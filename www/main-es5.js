@@ -691,7 +691,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "ion-fab {\n  top: 0;\n  display: flex;\n  justify-content: flex-end;\n  height: -webkit-fill-available;\n  align-items: center;\n}\nion-fab ion-fab-button {\n  --border-radius: 0;\n  width: 250px;\n  white-space: pre-wrap !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1tZW51L3VzZXItbWVudS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLE1BQUE7RUFDQSxhQUFBO0VBQ0EseUJBQUE7RUFDQSw4QkFBQTtFQUNBLG1CQUFBO0FBQ0o7QUFBSTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGdDQUFBO0FBRVIiLCJmaWxlIjoic3JjL2FwcC91c2VyLW1lbnUvdXNlci1tZW51LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWZhYntcclxuICAgIHRvcDogMDtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xyXG4gICAgaGVpZ2h0OiAtd2Via2l0LWZpbGwtYXZhaWxhYmxlO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGlvbi1mYWItYnV0dG9ue1xyXG4gICAgICAgIC0tYm9yZGVyLXJhZGl1czogMDtcclxuICAgICAgICB3aWR0aDogMjUwcHg7XHJcbiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbn1cclxuIl19 */";
+      __webpack_exports__["default"] = "ion-fab {\n  top: 0;\n  display: flex;\n  justify-content: flex-end;\n  height: -webkit-fill-available;\n  align-items: center;\n}\nion-fab ion-fab-button {\n  --border-radius: 0;\n  width: 250px;\n  white-space: pre-wrap !important;\n}\n@media (max-width: 700px) {\n  .username {\n    display: none;\n  }\n\n  ion-fab-button {\n    width: 50px !important;\n    background-color: transparent !important;\n  }\n\n  ion-fab-list {\n    width: 250px;\n  }\n  ion-fab-list ion-fab-button {\n    width: 250px !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1tZW51L3VzZXItbWVudS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLE1BQUE7RUFDQSxhQUFBO0VBQ0EseUJBQUE7RUFDQSw4QkFBQTtFQUNBLG1CQUFBO0FBQ0o7QUFBSTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGdDQUFBO0FBRVI7QUFFQTtFQUNFO0lBQ0ksYUFBQTtFQUNKOztFQUNBO0lBQ0Usc0JBQUE7SUFDQSx3Q0FBQTtFQUVGOztFQUFBO0lBQ0UsWUFBQTtFQUdGO0VBRkU7SUFDSSx1QkFBQTtFQUlOO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC91c2VyLW1lbnUvdXNlci1tZW51LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWZhYntcclxuICAgIHRvcDogMDtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xyXG4gICAgaGVpZ2h0OiAtd2Via2l0LWZpbGwtYXZhaWxhYmxlO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGlvbi1mYWItYnV0dG9ue1xyXG4gICAgICAgIC0tYm9yZGVyLXJhZGl1czogMDtcclxuICAgICAgICB3aWR0aDogMjUwcHg7XHJcbiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWF4LXdpZHRoOiA3MDBweCkge1xyXG4gIC51c2VybmFtZXtcclxuICAgICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcbiAgaW9uLWZhYi1idXR0b257XHJcbiAgICB3aWR0aDogNTBweCAhaW1wb3J0YW50O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcclxuICB9XHJcbiAgaW9uLWZhYi1saXN0e1xyXG4gICAgd2lkdGg6IDI1MHB4O1xyXG4gICAgaW9uLWZhYi1idXR0b257XHJcbiAgICAgICAgd2lkdGg6IDI1MHB4ICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxufVxyXG4iXX0= */";
       /***/
     },
 
@@ -1644,7 +1644,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-fab vertical=\"top\" horizontal=\"end\" slot=\"fixed\" edge>\n  <ion-fab-button fill=\"clear\">{{nombre}}\n    <ion-icon name=\"person\"></ion-icon>\n  </ion-fab-button>\n  <ion-fab-list side=\"bottom\">\n\n    <ion-fab-button (click)=\"mostrarModal()\" class=\"primary-button\">\n      <ion-label>Cambiar Contraseña</ion-label>\n      <ion-icon name=\"lock-closed\"></ion-icon>\n    </ion-fab-button>\n\n    <ion-fab-button (click)=\"logout()\" class=\"primary-button\">\n      <ion-label>Cerrar Sesión</ion-label>\n      <ion-icon name=\"log-out\"></ion-icon>\n    </ion-fab-button>\n\n  </ion-fab-list>\n</ion-fab>";
+      __webpack_exports__["default"] = "<ion-fab vertical=\"top\" horizontal=\"end\" slot=\"fixed\" edge>\n  <ion-fab-button fill=\"clear\" class=\"menu-button\">\n    <div class=\"username\">\n      {{nombre}}\n    </div>\n    <ion-icon name=\"person\"></ion-icon>\n  </ion-fab-button>\n  <ion-fab-list side=\"bottom\">\n    <ion-fab-button (click)=\"mostrarModal()\" class=\"primary-button\">\n      <ion-label>Cambiar Contraseña</ion-label>\n      <ion-icon name=\"lock-closed\"></ion-icon>\n    </ion-fab-button>\n\n    <ion-fab-button (click)=\"logout()\" class=\"primary-button\">\n      <ion-label>Cerrar Sesión</ion-label>\n      <ion-icon name=\"log-out\"></ion-icon>\n    </ion-fab-button>\n\n  </ion-fab-list>\n</ion-fab>";
       /***/
     },
 
@@ -2134,14 +2134,17 @@
         }, {
           key: "logout",
           value: function logout() {
-            this.storage.clear();
-            this.router.navigate(['/login']);
+            var _this15 = this;
+
+            this.storage.clear().then(function (result) {
+              _this15.router.navigate(['/login']);
+            });
           }
         }, {
           key: "mostrarModal",
           value: function mostrarModal() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee27() {
-              var _this15 = this;
+              var _this16 = this;
 
               var modal;
               return regeneratorRuntime.wrap(function _callee27$(_context27) {
@@ -2159,7 +2162,7 @@
                       modal.present();
                       _context27.next = 6;
                       return modal.onWillDismiss().then(function (result) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this15, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee26() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this16, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee26() {
                           var toast;
                           return regeneratorRuntime.wrap(function _callee26$(_context26) {
                             while (1) {
@@ -2316,15 +2319,19 @@
           }, {
             title: 'Usuarios',
             url: '/usuarios',
-            icon: 'people-circle-outline'
+            icon: 'people-circle'
           }, {
             title: 'Programación Viajes',
             url: '/programacion-viajes',
-            icon: 'alarm-outline'
+            icon: 'alarm'
           }, {
             title: 'Mis Viajes',
             url: '/mis-viajes',
-            icon: 'earth-outline'
+            icon: 'earth'
+          }, {
+            title: 'Dashboard',
+            url: '/dashboard',
+            icon: 'bar-chart'
           }];
           this.initializeApp();
         }
@@ -2332,18 +2339,18 @@
         _createClass(AppComponent, [{
           key: "initializeApp",
           value: function initializeApp() {
-            var _this16 = this;
+            var _this17 = this;
 
             this.platform.ready().then(function () {
-              _this16.statusBar.styleDefault();
+              _this17.statusBar.styleDefault();
 
-              _this16.splashScreen.hide();
+              _this17.splashScreen.hide();
 
-              _this16.firebase.getToken().then(function (token) {
+              _this17.firebase.getToken().then(function (token) {
                 return console.log("The token is ".concat(token));
               });
 
-              _this16.firebase.onMessageReceived().subscribe(function (data) {
+              _this17.firebase.onMessageReceived().subscribe(function (data) {
                 return console.log("FCM message: ".concat(data));
               });
             });
@@ -2542,61 +2549,61 @@
         var _super2 = _createSuper(DetalleViajeComponent);
 
         function DetalleViajeComponent(getService, postService, putService, toastCtrl, modalCtrl) {
-          var _this17;
+          var _this18;
 
           _classCallCheck(this, DetalleViajeComponent);
 
-          _this17 = _super2.call(this, getService, postService, putService, toastCtrl, modalCtrl);
-          _this17.getService = getService;
-          _this17.postService = postService;
-          _this17.putService = putService;
-          _this17.toastCtrl = toastCtrl;
-          _this17.modalCtrl = modalCtrl;
-          _this17.url = "viajes";
-          _this17.urlClientes = "clientes";
-          _this17.urlCamiones = "camiones";
-          _this17.urlConductores = "account/listarPorRol/conductor";
-          _this17.urlAuxiliares = "account/listarPorRol/auxiliar";
-          _this17.urlOrigenDestinoCliente = "sedes/PorCliente/";
-          _this17.viaje = new _programacion_viajes_viaje__WEBPACK_IMPORTED_MODULE_7__["Viaje"]();
-          _this17.cliente = new _clientes_cliente__WEBPACK_IMPORTED_MODULE_6__["Cliente"]();
-          _this17.camion = new _camiones_camion__WEBPACK_IMPORTED_MODULE_5__["Camion"]();
-          _this17.conductor = new _usuarios_usuario__WEBPACK_IMPORTED_MODULE_12__["Usuario"]();
-          _this17.auxiliar = new _usuarios_usuario__WEBPACK_IMPORTED_MODULE_12__["Usuario"]();
-          _this17.origen = new _sedes_sede__WEBPACK_IMPORTED_MODULE_8__["Sede"]();
-          _this17.destino = new _sedes_sede__WEBPACK_IMPORTED_MODULE_8__["Sede"]();
-          return _this17;
+          _this18 = _super2.call(this, getService, postService, putService, toastCtrl, modalCtrl);
+          _this18.getService = getService;
+          _this18.postService = postService;
+          _this18.putService = putService;
+          _this18.toastCtrl = toastCtrl;
+          _this18.modalCtrl = modalCtrl;
+          _this18.url = "viajes";
+          _this18.urlClientes = "clientes";
+          _this18.urlCamiones = "camiones";
+          _this18.urlConductores = "account/listarPorRol/conductor";
+          _this18.urlAuxiliares = "account/listarPorRol/auxiliar";
+          _this18.urlOrigenDestinoCliente = "sedes/PorCliente/";
+          _this18.viaje = new _programacion_viajes_viaje__WEBPACK_IMPORTED_MODULE_7__["Viaje"]();
+          _this18.cliente = new _clientes_cliente__WEBPACK_IMPORTED_MODULE_6__["Cliente"]();
+          _this18.camion = new _camiones_camion__WEBPACK_IMPORTED_MODULE_5__["Camion"]();
+          _this18.conductor = new _usuarios_usuario__WEBPACK_IMPORTED_MODULE_12__["Usuario"]();
+          _this18.auxiliar = new _usuarios_usuario__WEBPACK_IMPORTED_MODULE_12__["Usuario"]();
+          _this18.origen = new _sedes_sede__WEBPACK_IMPORTED_MODULE_8__["Sede"]();
+          _this18.destino = new _sedes_sede__WEBPACK_IMPORTED_MODULE_8__["Sede"]();
+          return _this18;
         }
 
         _createClass(DetalleViajeComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this18 = this;
+            var _this19 = this;
 
             if (this.id != null) {
               _get(_getPrototypeOf(DetalleViajeComponent.prototype), "consumirGet", this).call(this, this.url + "/" + this.id).then(function (data) {
-                _this18.viaje = data;
-                _this18.cliente = data.cliente;
-                _this18.camion = data.camion;
-                _this18.conductor = data.conductor;
-                _this18.auxiliar = data.auxiliar;
-                _this18.origen = data.sedeOrigen;
-                _this18.destino = data.sedeDestino;
-                _this18.fecha = data.fecha;
-                _this18.destino.nombre = data.sedeOrigen.direccion;
-                _this18.habilidato = _this18.viaje.estado === "Finalizado" ? true : false;
+                _this19.viaje = data;
+                _this19.cliente = data.cliente;
+                _this19.camion = data.camion;
+                _this19.conductor = data.conductor;
+                _this19.auxiliar = data.auxiliar;
+                _this19.origen = data.sedeOrigen;
+                _this19.destino = data.sedeDestino;
+                _this19.fecha = data.fecha;
+                _this19.destino.nombre = data.sedeOrigen.direccion;
+                _this19.habilidato = _this19.viaje.estado === "Finalizado" ? true : false;
               });
             }
           }
         }, {
           key: "acutalizarViaje",
           value: function acutalizarViaje() {
-            var _this19 = this;
+            var _this20 = this;
 
             var _super = Object.create(null, {
               consumirPost: {
                 get: function get() {
-                  return _get(_getPrototypeOf(DetalleViajeComponent.prototype), "consumirPost", _this19);
+                  return _get(_getPrototypeOf(DetalleViajeComponent.prototype), "consumirPost", _this20);
                 }
               }
             });
@@ -2622,7 +2629,7 @@
         }, {
           key: "crearviaje",
           value: function crearviaje() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.viaje.idCliente = this.cliente.id;
             this.viaje.idOrigen = this.origen.id;
@@ -2633,7 +2640,7 @@
             this.viaje.fecha = this.fecha;
             console.log(this.viaje);
             this.postService.post(this.url, this.viaje).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this20, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee29() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this21, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee29() {
                 var toast;
                 return regeneratorRuntime.wrap(function _callee29$(_context29) {
                   while (1) {
@@ -2667,7 +2674,7 @@
                 }, _callee29, this);
               }));
             }, function (error) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this20, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee30() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this21, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee30() {
                 return regeneratorRuntime.wrap(function _callee30$(_context30) {
                   while (1) {
                     switch (_context30.prev = _context30.next) {
@@ -3370,12 +3377,12 @@
         _createClass(DetalleSedeComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this21 = this;
+            var _this22 = this;
 
             if (this.id != null) {
               this.getService.get(this.url, this.id).subscribe(function (result) {
                 if (result.success) {
-                  _this21.sede = result.message;
+                  _this22.sede = result.message;
                 }
               });
             }
@@ -3405,10 +3412,10 @@
         }, {
           key: "crearSede",
           value: function crearSede() {
-            var _this22 = this;
+            var _this23 = this;
 
             this.postService.post(this.url, this.sede).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this22, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee33() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this23, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee33() {
                 var toast;
                 return regeneratorRuntime.wrap(function _callee33$(_context33) {
                   while (1) {
@@ -3442,7 +3449,7 @@
                 }, _callee33, this);
               }));
             }, function (error) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this22, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee34() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this23, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee34() {
                 var toast;
                 return regeneratorRuntime.wrap(function _callee34$(_context34) {
                   while (1) {
@@ -3475,10 +3482,10 @@
         }, {
           key: "actualizarSede",
           value: function actualizarSede() {
-            var _this23 = this;
+            var _this24 = this;
 
             this.putService.put(this.url, this.id, this.sede).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this23, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee35() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this24, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee35() {
                 var toast;
                 return regeneratorRuntime.wrap(function _callee35$(_context35) {
                   while (1) {
@@ -3512,7 +3519,7 @@
                 }, _callee35, this);
               }));
             }, function (error) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this23, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee36() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this24, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee36() {
                 var toast;
                 return regeneratorRuntime.wrap(function _callee36$(_context36) {
                   while (1) {
@@ -3779,36 +3786,36 @@
         var _super3 = _createSuper(DetalleProgramacionViajesComponent);
 
         function DetalleProgramacionViajesComponent(getService, postService, putService, toastCtrl, modalCtrl) {
-          var _this24;
+          var _this25;
 
           _classCallCheck(this, DetalleProgramacionViajesComponent);
 
-          _this24 = _super3.call(this, getService, postService, putService, toastCtrl, modalCtrl);
-          _this24.getService = getService;
-          _this24.postService = postService;
-          _this24.putService = putService;
-          _this24.toastCtrl = toastCtrl;
-          _this24.modalCtrl = modalCtrl;
-          _this24.url = "viajes";
-          _this24.urlClientes = "clientes";
-          _this24.urlCamiones = "camiones";
-          _this24.urlConductores = "account/listarPorRol/conductor";
-          _this24.urlAuxiliares = "account/listarPorRol/auxiliar";
-          _this24.urlOrigenDestinoCliente = "sedes/PorCliente/";
-          _this24.viaje = new _programacion_viajes_viaje__WEBPACK_IMPORTED_MODULE_7__["Viaje"]();
-          _this24.cliente = new _clientes_cliente__WEBPACK_IMPORTED_MODULE_6__["Cliente"]();
-          _this24.camion = new _camiones_camion__WEBPACK_IMPORTED_MODULE_5__["Camion"]();
-          _this24.conductor = new _usuarios_usuario__WEBPACK_IMPORTED_MODULE_12__["Usuario"]();
-          _this24.auxiliar = new _usuarios_usuario__WEBPACK_IMPORTED_MODULE_12__["Usuario"]();
-          _this24.origen = new _sedes_sede__WEBPACK_IMPORTED_MODULE_8__["Sede"]();
-          _this24.destino = new _sedes_sede__WEBPACK_IMPORTED_MODULE_8__["Sede"]();
-          return _this24;
+          _this25 = _super3.call(this, getService, postService, putService, toastCtrl, modalCtrl);
+          _this25.getService = getService;
+          _this25.postService = postService;
+          _this25.putService = putService;
+          _this25.toastCtrl = toastCtrl;
+          _this25.modalCtrl = modalCtrl;
+          _this25.url = "viajes";
+          _this25.urlClientes = "clientes";
+          _this25.urlCamiones = "camiones";
+          _this25.urlConductores = "account/listarPorRol/conductor";
+          _this25.urlAuxiliares = "account/listarPorRol/auxiliar";
+          _this25.urlOrigenDestinoCliente = "sedes/PorCliente/";
+          _this25.viaje = new _programacion_viajes_viaje__WEBPACK_IMPORTED_MODULE_7__["Viaje"]();
+          _this25.cliente = new _clientes_cliente__WEBPACK_IMPORTED_MODULE_6__["Cliente"]();
+          _this25.camion = new _camiones_camion__WEBPACK_IMPORTED_MODULE_5__["Camion"]();
+          _this25.conductor = new _usuarios_usuario__WEBPACK_IMPORTED_MODULE_12__["Usuario"]();
+          _this25.auxiliar = new _usuarios_usuario__WEBPACK_IMPORTED_MODULE_12__["Usuario"]();
+          _this25.origen = new _sedes_sede__WEBPACK_IMPORTED_MODULE_8__["Sede"]();
+          _this25.destino = new _sedes_sede__WEBPACK_IMPORTED_MODULE_8__["Sede"]();
+          return _this25;
         }
 
         _createClass(DetalleProgramacionViajesComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this26 = this;
 
             this.obtenerClientes();
             this.obtenerCamiones();
@@ -3817,14 +3824,14 @@
 
             if (this.id != null) {
               _get(_getPrototypeOf(DetalleProgramacionViajesComponent.prototype), "consumirGet", this).call(this, this.url + "/" + this.id).then(function (data) {
-                _this25.viaje = data;
-                _this25.cliente = data.cliente;
-                _this25.camion = data.camion;
-                _this25.conductor = data.conductor;
-                _this25.auxiliar = data.auxiliar;
-                _this25.origen = data.sedeOrigen;
-                _this25.destino = data.sedeDestino;
-                _this25.fecha = data.fecha;
+                _this26.viaje = data;
+                _this26.cliente = data.cliente;
+                _this26.camion = data.camion;
+                _this26.conductor = data.conductor;
+                _this26.auxiliar = data.auxiliar;
+                _this26.origen = data.sedeOrigen;
+                _this26.destino = data.sedeDestino;
+                _this26.fecha = data.fecha;
               });
             }
           }
@@ -3853,7 +3860,7 @@
         }, {
           key: "crearviaje",
           value: function crearviaje() {
-            var _this26 = this;
+            var _this27 = this;
 
             this.viaje.idCliente = this.cliente.id;
             this.viaje.idOrigen = this.origen.id;
@@ -3864,7 +3871,7 @@
             this.viaje.fecha = this.fecha;
             console.log(this.viaje);
             this.postService.post(this.url, this.viaje).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this26, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee38() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this27, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee38() {
                 var toast;
                 return regeneratorRuntime.wrap(function _callee38$(_context38) {
                   while (1) {
@@ -3898,7 +3905,7 @@
                 }, _callee38, this);
               }));
             }, function (error) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this26, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee39() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this27, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee39() {
                 return regeneratorRuntime.wrap(function _callee39$(_context39) {
                   while (1) {
                     switch (_context39.prev = _context39.next) {
@@ -3917,10 +3924,10 @@
         }, {
           key: "actualizarviaje",
           value: function actualizarviaje() {
-            var _this27 = this;
+            var _this28 = this;
 
             this.putService.put(this.url, this.id, this.viaje).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this27, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee40() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this28, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee40() {
                 var toast;
                 return regeneratorRuntime.wrap(function _callee40$(_context40) {
                   while (1) {
@@ -3954,7 +3961,7 @@
                 }, _callee40, this);
               }));
             }, function (error) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this27, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee41() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this28, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee41() {
                 return regeneratorRuntime.wrap(function _callee41$(_context41) {
                   while (1) {
                     switch (_context41.prev = _context41.next) {
@@ -4012,10 +4019,10 @@
         }, {
           key: "obtenerClientes",
           value: function obtenerClientes() {
-            var _this28 = this;
+            var _this29 = this;
 
             this.getService.get(this.urlClientes).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this28, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee43() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this29, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee43() {
                 return regeneratorRuntime.wrap(function _callee43$(_context43) {
                   while (1) {
                     switch (_context43.prev = _context43.next) {
@@ -4038,10 +4045,10 @@
         }, {
           key: "obtenerCamiones",
           value: function obtenerCamiones() {
-            var _this29 = this;
+            var _this30 = this;
 
             this.getService.get(this.urlCamiones).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this29, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee44() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this30, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee44() {
                 return regeneratorRuntime.wrap(function _callee44$(_context44) {
                   while (1) {
                     switch (_context44.prev = _context44.next) {
@@ -4064,10 +4071,10 @@
         }, {
           key: "obtenerConductores",
           value: function obtenerConductores() {
-            var _this30 = this;
+            var _this31 = this;
 
             this.getService.get(this.urlConductores).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this30, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee45() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this31, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee45() {
                 return regeneratorRuntime.wrap(function _callee45$(_context45) {
                   while (1) {
                     switch (_context45.prev = _context45.next) {
@@ -4090,10 +4097,10 @@
         }, {
           key: "obtenerAuxiliares",
           value: function obtenerAuxiliares() {
-            var _this31 = this;
+            var _this32 = this;
 
             this.getService.get(this.urlAuxiliares).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this31, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee46() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this32, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee46() {
                 return regeneratorRuntime.wrap(function _callee46$(_context46) {
                   while (1) {
                     switch (_context46.prev = _context46.next) {
@@ -4116,11 +4123,11 @@
         }, {
           key: "obtenerOrigenesDestinos",
           value: function obtenerOrigenesDestinos() {
-            var _this32 = this;
+            var _this33 = this;
 
             console.log(this.urlOrigenDestinoCliente + this.cliente.id);
             this.getService.get(this.urlOrigenDestinoCliente + this.cliente.id).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this32, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee47() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this33, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee47() {
                 return regeneratorRuntime.wrap(function _callee47$(_context47) {
                   while (1) {
                     switch (_context47.prev = _context47.next) {
@@ -4320,6 +4327,17 @@
             return m.MisViajesPageModule;
           });
         }
+      }, {
+        path: 'dashboard',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | dashboard-dashboard-module */
+          "dashboard-dashboard-module").then(__webpack_require__.bind(null,
+          /*! ./dashboard/dashboard.module */
+          "TDBs")).then(function (m) {
+            return m.DashboardPageModule;
+          });
+        }
       }];
 
       var AppRoutingModule = function AppRoutingModule() {
@@ -4432,10 +4450,10 @@
         }, {
           key: "login",
           value: function login(loginForm) {
-            var _this33 = this;
+            var _this34 = this;
 
             this.postService.post(this.url, loginForm).subscribe(function (result) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this33, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee48() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this34, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee48() {
                 var toast;
                 return regeneratorRuntime.wrap(function _callee48$(_context48) {
                   while (1) {
@@ -4451,7 +4469,7 @@
                         this.storage.set('expiration', result.expiration);
                         this.storage.set('nombre', result.nombre);
                         this.loginForm.reset();
-                        this.router.navigate(['/mis-viajes']);
+                        this.router.navigate(['/dashboard']);
                         _context48.next = 13;
                         break;
 
@@ -4479,7 +4497,7 @@
                 }, _callee48, this);
               }));
             }, function (error) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this33, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee49() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this34, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee49() {
                 var toast;
                 return regeneratorRuntime.wrap(function _callee49$(_context49) {
                   while (1) {
@@ -4499,8 +4517,9 @@
                       case 2:
                         toast = _context49.sent;
                         toast.present();
+                        console.log(error);
 
-                      case 4:
+                      case 5:
                       case "end":
                         return _context49.stop();
                     }

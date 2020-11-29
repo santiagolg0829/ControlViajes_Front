@@ -15,6 +15,7 @@ export class DetalleCamionComponent implements OnInit {
   public camion: Camion;
   private url = "camiones";
   @Input() id: string;
+  public clicked: boolean;
 
   constructor(private getService: GetService,
     private postService: PostService,
@@ -22,6 +23,7 @@ export class DetalleCamionComponent implements OnInit {
     public toastCtrl: ToastController,
     public modalCtrl: ModalController) {
     this.camion = new Camion();
+    this.clicked = false;
   }
 
   ngOnInit() {
@@ -35,6 +37,7 @@ export class DetalleCamionComponent implements OnInit {
   }
 
   async guardar() {
+    this.clicked = true;
     if (this.id != null) {
       this.actualizarCamion();
     } else {
@@ -58,6 +61,8 @@ export class DetalleCamionComponent implements OnInit {
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
@@ -71,6 +76,7 @@ export class DetalleCamionComponent implements OnInit {
         ]
       });
       toast.present();
+      this.clicked = false;
     });
   }
 
@@ -90,6 +96,8 @@ export class DetalleCamionComponent implements OnInit {
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
@@ -103,6 +111,7 @@ export class DetalleCamionComponent implements OnInit {
         ]
       });
       toast.present();
+      this.clicked = false;
     });
   }
 

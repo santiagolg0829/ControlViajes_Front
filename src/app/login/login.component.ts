@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   public password: string;
   public loginForm: FormGroup;
   private url = "Account/login";
+  public clicked: boolean;
 
   constructor(private router: Router,
     private storage: Storage,
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
       email: '',
       password: ''
     });
+    this.clicked = false;
   }
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class LoginComponent implements OnInit {
 
 
   login(loginForm: any) {
+    this.clicked = true;
     this.postService.post(this.url, loginForm).subscribe(async result => {
       if (result.success) {
         this.storage.clear();
@@ -57,6 +60,7 @@ export class LoginComponent implements OnInit {
           ]
         });
         toast.present();
+        this.clicked = false;
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
@@ -70,6 +74,7 @@ export class LoginComponent implements OnInit {
         ]
       });
       toast.present();
+      this.clicked = false;
     });
   }
 

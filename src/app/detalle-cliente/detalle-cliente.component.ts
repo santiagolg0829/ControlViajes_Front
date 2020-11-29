@@ -18,7 +18,9 @@ export class DetalleClienteComponent implements OnInit {
   public cliente: Cliente;
   private url = "clientes";
   public statuses: any[];
+  public clicked: boolean;
   @Input() id: string;
+
 
   constructor(private getService: GetService,
     private postService: PostService,
@@ -26,6 +28,7 @@ export class DetalleClienteComponent implements OnInit {
     public toastCtrl: ToastController,
     public modalCtrl: ModalController) {
     this.cliente = new Cliente();
+    this.clicked = false;
   }
 
   ngOnInit() {
@@ -43,6 +46,7 @@ export class DetalleClienteComponent implements OnInit {
   }
 
   async guardar() {
+    this.clicked = true;
     if (this.id != null) {
       this.actualizarCliente();
     } else {
@@ -66,6 +70,8 @@ export class DetalleClienteComponent implements OnInit {
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
@@ -79,6 +85,7 @@ export class DetalleClienteComponent implements OnInit {
         ]
       });
       toast.present();
+      this.clicked = false;
     });
   }
 
@@ -98,6 +105,8 @@ export class DetalleClienteComponent implements OnInit {
       toast.present();
       if (result.success) {
         this.dismiss(result);
+      } else {
+        this.clicked = false;
       }
     }, async error => {
       const toast = await this.toastCtrl.create({
@@ -111,13 +120,14 @@ export class DetalleClienteComponent implements OnInit {
         ]
       });
       toast.present();
+      this.clicked = false;
     });
   }
 
   dismiss(result: any) {
     this.modalCtrl.dismiss(result);
   }
-  
+
   eliminarSede(sede: Sede) {
     this.cliente.lstSedes = this.cliente.lstSedes.filter(val => val !== sede);
   }

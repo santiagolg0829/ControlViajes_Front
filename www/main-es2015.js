@@ -371,7 +371,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ion-fab {\n  top: 0;\n  display: flex;\n  justify-content: flex-end;\n  height: -webkit-fill-available;\n  align-items: center;\n}\nion-fab ion-fab-button {\n  --border-radius: 0;\n  width: 250px;\n  white-space: pre-wrap !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1tZW51L3VzZXItbWVudS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLE1BQUE7RUFDQSxhQUFBO0VBQ0EseUJBQUE7RUFDQSw4QkFBQTtFQUNBLG1CQUFBO0FBQ0o7QUFBSTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGdDQUFBO0FBRVIiLCJmaWxlIjoic3JjL2FwcC91c2VyLW1lbnUvdXNlci1tZW51LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWZhYntcclxuICAgIHRvcDogMDtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xyXG4gICAgaGVpZ2h0OiAtd2Via2l0LWZpbGwtYXZhaWxhYmxlO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGlvbi1mYWItYnV0dG9ue1xyXG4gICAgICAgIC0tYm9yZGVyLXJhZGl1czogMDtcclxuICAgICAgICB3aWR0aDogMjUwcHg7XHJcbiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-fab {\n  top: 0;\n  display: flex;\n  justify-content: flex-end;\n  height: -webkit-fill-available;\n  align-items: center;\n}\nion-fab ion-fab-button {\n  --border-radius: 0;\n  width: 250px;\n  white-space: pre-wrap !important;\n}\n@media (max-width: 700px) {\n  .username {\n    display: none;\n  }\n\n  ion-fab-button {\n    width: 50px !important;\n    background-color: transparent !important;\n  }\n\n  ion-fab-list {\n    width: 250px;\n  }\n  ion-fab-list ion-fab-button {\n    width: 250px !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1tZW51L3VzZXItbWVudS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLE1BQUE7RUFDQSxhQUFBO0VBQ0EseUJBQUE7RUFDQSw4QkFBQTtFQUNBLG1CQUFBO0FBQ0o7QUFBSTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGdDQUFBO0FBRVI7QUFFQTtFQUNFO0lBQ0ksYUFBQTtFQUNKOztFQUNBO0lBQ0Usc0JBQUE7SUFDQSx3Q0FBQTtFQUVGOztFQUFBO0lBQ0UsWUFBQTtFQUdGO0VBRkU7SUFDSSx1QkFBQTtFQUlOO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC91c2VyLW1lbnUvdXNlci1tZW51LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWZhYntcclxuICAgIHRvcDogMDtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xyXG4gICAgaGVpZ2h0OiAtd2Via2l0LWZpbGwtYXZhaWxhYmxlO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGlvbi1mYWItYnV0dG9ue1xyXG4gICAgICAgIC0tYm9yZGVyLXJhZGl1czogMDtcclxuICAgICAgICB3aWR0aDogMjUwcHg7XHJcbiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS13cmFwICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWF4LXdpZHRoOiA3MDBweCkge1xyXG4gIC51c2VybmFtZXtcclxuICAgICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcbiAgaW9uLWZhYi1idXR0b257XHJcbiAgICB3aWR0aDogNTBweCAhaW1wb3J0YW50O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcclxuICB9XHJcbiAgaW9uLWZhYi1saXN0e1xyXG4gICAgd2lkdGg6IDI1MHB4O1xyXG4gICAgaW9uLWZhYi1idXR0b257XHJcbiAgICAgICAgd2lkdGg6IDI1MHB4ICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -858,7 +858,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-fab vertical=\"top\" horizontal=\"end\" slot=\"fixed\" edge>\n  <ion-fab-button fill=\"clear\">{{nombre}}\n    <ion-icon name=\"person\"></ion-icon>\n  </ion-fab-button>\n  <ion-fab-list side=\"bottom\">\n\n    <ion-fab-button (click)=\"mostrarModal()\" class=\"primary-button\">\n      <ion-label>Cambiar Contraseña</ion-label>\n      <ion-icon name=\"lock-closed\"></ion-icon>\n    </ion-fab-button>\n\n    <ion-fab-button (click)=\"logout()\" class=\"primary-button\">\n      <ion-label>Cerrar Sesión</ion-label>\n      <ion-icon name=\"log-out\"></ion-icon>\n    </ion-fab-button>\n\n  </ion-fab-list>\n</ion-fab>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-fab vertical=\"top\" horizontal=\"end\" slot=\"fixed\" edge>\n  <ion-fab-button fill=\"clear\" class=\"menu-button\">\n    <div class=\"username\">\n      {{nombre}}\n    </div>\n    <ion-icon name=\"person\"></ion-icon>\n  </ion-fab-button>\n  <ion-fab-list side=\"bottom\">\n    <ion-fab-button (click)=\"mostrarModal()\" class=\"primary-button\">\n      <ion-label>Cambiar Contraseña</ion-label>\n      <ion-icon name=\"lock-closed\"></ion-icon>\n    </ion-fab-button>\n\n    <ion-fab-button (click)=\"logout()\" class=\"primary-button\">\n      <ion-label>Cerrar Sesión</ion-label>\n      <ion-icon name=\"log-out\"></ion-icon>\n    </ion-fab-button>\n\n  </ion-fab-list>\n</ion-fab>");
 
 /***/ }),
 
@@ -1095,8 +1095,9 @@ let UserMenuComponent = class UserMenuComponent {
         });
     }
     logout() {
-        this.storage.clear();
-        this.router.navigate(['/login']);
+        this.storage.clear().then(result => {
+            this.router.navigate(['/login']);
+        });
     }
     mostrarModal() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -1189,17 +1190,22 @@ let AppComponent = class AppComponent {
             {
                 title: 'Usuarios',
                 url: '/usuarios',
-                icon: 'people-circle-outline'
+                icon: 'people-circle'
             },
             {
                 title: 'Programación Viajes',
                 url: '/programacion-viajes',
-                icon: 'alarm-outline'
+                icon: 'alarm'
             },
             {
                 title: 'Mis Viajes',
                 url: '/mis-viajes',
-                icon: 'earth-outline'
+                icon: 'earth'
+            },
+            {
+                title: 'Dashboard',
+                url: '/dashboard',
+                icon: 'bar-chart'
             }
         ];
         this.initializeApp();
@@ -2449,6 +2455,10 @@ const routes = [
     {
         path: 'mis-viajes',
         loadChildren: () => __webpack_require__.e(/*! import() | mis-viajes-mis-viajes-module */ "mis-viajes-mis-viajes-module").then(__webpack_require__.bind(null, /*! ./mis-viajes/mis-viajes.module */ "dgGR")).then(m => m.MisViajesPageModule)
+    },
+    {
+        path: 'dashboard',
+        loadChildren: () => __webpack_require__.e(/*! import() | dashboard-dashboard-module */ "dashboard-dashboard-module").then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "TDBs")).then(m => m.DashboardPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -2518,7 +2528,7 @@ let LoginComponent = class LoginComponent {
                 this.storage.set('expiration', result.expiration);
                 this.storage.set('nombre', result.nombre);
                 this.loginForm.reset();
-                this.router.navigate(['/mis-viajes']);
+                this.router.navigate(['/dashboard']);
             }
             else {
                 const toast = yield this.toastCtrl.create({
@@ -2545,6 +2555,7 @@ let LoginComponent = class LoginComponent {
                 ]
             });
             toast.present();
+            console.log(error);
         }));
     }
 };

@@ -94,13 +94,14 @@
           </p-cellEditor>
         </td>
         <td class="action-column">
-          <p-button label="Eliminar" icon="pi pi-times" iconPos="left" (click)="eliminarSede(sede)" class="primary-button"></p-button>
+          <p-button label="Eliminar" icon="pi pi-times" iconPos="left" (click)="eliminarSede(sede)"
+            class="primary-button"></p-button>
         </td>
       </tr>
     </ng-template>
   </p-table>
 
 
-  <ion-button (click)="guardar()">Guardar</ion-button>
+  <ion-button (click)="guardar()" [disabled]="clicked">Guardar</ion-button>
 
 </ion-content>

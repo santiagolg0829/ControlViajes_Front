@@ -24,6 +24,7 @@ export class DetalleViajeComponent extends genericService implements OnInit {
   private urlConductores = "account/listarPorRol/conductor"
   private urlAuxiliares = "account/listarPorRol/auxiliar"
   private urlOrigenDestinoCliente = "sedes/PorCliente/"
+  public clicked: boolean;
 
   public fecha: Date;
   //Externos 
@@ -59,6 +60,7 @@ export class DetalleViajeComponent extends genericService implements OnInit {
     this.auxiliar = new Usuario();
     this.origen = new Sede();
     this.destino = new Sede();    
+    this.clicked = false;
     
   }
 

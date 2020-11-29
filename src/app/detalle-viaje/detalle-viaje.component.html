@@ -148,6 +148,6 @@
     <ion-input type="text" [(ngModel)]="viaje.numeroCuenta"></ion-input>
   </ion-item>
 
-  <ion-button (click)="acutalizarViaje()" >{{ viaje.estado == "Sin Iniciar" ? "Iniciar" : "Finalizar" }}</ion-button>
+  <ion-button (click)="acutalizarViaje()" [disabled]="clicked">{{ viaje.estado == "Sin Iniciar" ? "Iniciar" : "Finalizar" }}</ion-button>
 
 </ion-content>
