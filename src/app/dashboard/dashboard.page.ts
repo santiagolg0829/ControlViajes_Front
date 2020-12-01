@@ -3,7 +3,7 @@ import { ModalController, ToastController } from '@ionic/angular';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { GetService } from '../services/get/get.service';
 import { GenericService } from '../utils/genericService';
-
+import { HttpTransportType, HubConnectionBuilder } from '@aspnet/signalr'; 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
@@ -82,6 +82,28 @@ export class DashboardPage extends GenericService implements OnInit {
     super.consumirGet('viajes/prueba').then((data:any)=>{
       this.dashboard = data;
     });
+    this.conectarWebSocket();
+  }
+
+  conectarWebSocket(): void {
+    let connection = new HubConnectionBuilder()
+    .withUrl('http://localhost:60674/contador', {
+      skipNegotiation: true,
+      transport: HttpTransportType.WebSockets
+    })
+    .build();
+
+    connection.start()
+    .then(() => {
+      console.log('Connected');
+
+      connection.on('dashboard', (data) => {
+        console.log(data);
+      });
+
+      //connection.invoke('GetContador');
+    });   
+
   }
 
 }
