@@ -12,7 +12,8 @@ import { HttpTransportType, HubConnectionBuilder } from '@aspnet/signalr';
 export class DashboardPage extends GenericService implements OnInit {
 
   data: any;
-  public vehiculos: any[];
+  public vehiculosPropios: any[];
+  public vehiculosTerceros: any[];
   public estadosRuta: any[];
   public indicadores: any[];
   public options: any;
@@ -24,37 +25,13 @@ export class DashboardPage extends GenericService implements OnInit {
     public modalCtrl: ModalController) {
     super(getService, null, null, toastCtrl, modalCtrl);
 
-    let dashboard = 
-
-    this.data = {
-      labels: ['Activos', 'Inactivos'],
-      datasets: [
-        {
-          data: [90, 10],
-          backgroundColor: [
-            "#496427",
-            "#a29fa0"
-          ],
-          hoverBackgroundColor: [
-            "#496427",
-            "#a29fa0"
-          ]
-        }]
-    };
+    
     this.estadosRuta = [
-      { label: 'Inicio', value: '0' },
-      { label: 'Transito', value: '1' },
-      { label: 'Finalizado', value: '2' }
+      { label: 'Inicio', value: '1' },
+      { label: 'Transito', value: '2' },
+      { label: 'Finalizado', value: '3' }
     ];
-    this.vehiculos = [
-      { placa: 'OMP888', cliente: 'Femsa', estadoRuta: 0 },
-      { placa: 'ABC123', cliente: 'Plasticos S.A.', estadoRuta: 1 },
-      { placa: 'TMZ274', cliente: 'Femsa', estadoRuta: 2 }
-    ];
-    this.indicadores = [
-      { cliente: 'Femsa', numeroViajes: 4 },
-      { cliente: 'Plasticos S.A.', numeroViajes: 2 }
-    ];
+
     this.options = {
       tooltips: {
         enabled: false
@@ -98,11 +75,38 @@ export class DashboardPage extends GenericService implements OnInit {
       console.log('Connected');
 
       connection.on('dashboard', (data) => {
+        console.log("data:");
         console.log(data);
+
+        if(data.success)
+        {
+          this.vehiculosPropios = data.message.lstVehiculosPropios;
+          this.vehiculosTerceros = data.message.lstVehiculosTerceros;
+          this.indicadores = data.message.lstIndicadores;
+          this.data = {
+            labels: ['Activos', 'Inactivos'],
+            datasets: [
+              {
+                data: data.message.lstDatosTorta,
+                backgroundColor: [
+                  "#496427",
+                  "#a29fa0"
+                ],
+                hoverBackgroundColor: [
+                  "#496427",
+                  "#a29fa0"
+                ]
+              }]
+          };
+        }
+        
       });
 
       //connection.invoke('GetContador');
-    });   
+      
+    }); 
+    
+     
 
   }
 
