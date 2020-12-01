@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController, ToastController } from '@ionic/angular';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { GetService } from '../services/get/get.service';
+import { GenericService } from '../utils/genericService';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
-export class DashboardPage implements OnInit {
+export class DashboardPage extends GenericService implements OnInit {
 
   data: any;
   public vehiculos: any[];
@@ -14,8 +17,15 @@ export class DashboardPage implements OnInit {
   public indicadores: any[];
   public options: any;
   public plugin = ChartDataLabels;
+  dashboard: any;
 
-  constructor() {
+  constructor(public getService: GetService,
+    public toastCtrl: ToastController,
+    public modalCtrl: ModalController) {
+    super(getService, null, null, toastCtrl, modalCtrl);
+
+    let dashboard = 
+
     this.data = {
       labels: ['Activos', 'Inactivos'],
       datasets: [
@@ -65,11 +75,13 @@ export class DashboardPage implements OnInit {
         }
       }
     };
-
-
   }
+  
 
   ngOnInit() {
+    super.consumirGet('viajes/prueba').then((data:any)=>{
+      this.dashboard = data;
+    });
   }
 
 }
