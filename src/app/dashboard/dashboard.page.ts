@@ -89,8 +89,8 @@ export class DashboardPage extends GenericService implements OnInit {
               {
                 data: data.message.lstDatosTorta,
                 backgroundColor: [
-                  "#496427",
-                  "#a29fa0"
+                  "#36A2EB",
+                  "#FFCE56"
                 ],
                 hoverBackgroundColor: [
                   "#496427",
