@@ -8,14 +8,14 @@ import { GetService } from '../services/get/get.service';
 import { PostService } from '../services/post/post.service';
 import { PutService } from '../services/put/put.service';
 import { Usuario } from '../usuarios/usuario';
-import { genericService } from '../utils/genericService';
+import { GenericService } from '../utils/genericService';
 
 @Component({
   selector: 'app-detalle-programacion-viajes',
   templateUrl: './detalle-programacion-viajes.component.html',
   styleUrls: ['./detalle-programacion-viajes.component.scss'],
 })
-export class DetalleProgramacionViajesComponent extends genericService implements OnInit {
+export class DetalleProgramacionViajesComponent extends GenericService implements OnInit {
 
   public viaje: Viaje;
   private url = "viajes";
@@ -70,7 +70,7 @@ export class DetalleProgramacionViajesComponent extends genericService implement
     this.obtenerAuxiliares();
 
     if (this.id != null) {
-      super.consumirGet(this.url + "/" + this.id).then((data: any) => {
+      super.consumirGet(this.url, this.id).then((data:any)=>{
         this.viaje = data;
         this.cliente = data.cliente;
         this.camion = data.camion;
@@ -92,8 +92,7 @@ export class DetalleProgramacionViajesComponent extends genericService implement
     }
   }
 
-  crearviaje() {
-
+  crearviaje() {    
     this.viaje.idCliente = this.cliente.id;
     this.viaje.idOrigen = this.origen.id;
     this.viaje.idDestino = this.destino.id;
@@ -101,53 +100,16 @@ export class DetalleProgramacionViajesComponent extends genericService implement
     this.viaje.idConductor = this.conductor.id;
     this.viaje.idAuxiliar = this.auxiliar == null ? null : this.auxiliar.id;
     this.viaje.fecha = this.fecha;
+    
     console.log(this.viaje);
-    this.postService.post(this.url, this.viaje).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      } else {
-        this.clicked = false;
-      }
-    }, async error => {
-      this.showModalError(error);
-      this.clicked = false;
+    super.consumirPost(this.url, this.viaje).then((data:any)=>{
+      this.clientes = data;
     });
   }
 
   actualizarviaje() {
-    this.putService.put(this.url, this.id, this.viaje).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      } else {
-        this.clicked = false;
-      }
-    }, async error => {
-      this.showModalError(error);
-      this.clicked = false;
+    super.consumirPut(this.url, this.id, this.viaje).then((data:any)=>{
+      this.clientes = data;
     });
   }
 
@@ -155,72 +117,34 @@ export class DetalleProgramacionViajesComponent extends genericService implement
     this.modalCtrl.dismiss(result);
   }
 
-  async showModalError(message: string) {
-    const toast = await this.toastCtrl.create({
-      message: message,
-      position: "middle",
-      color: "danger",
-      buttons: [{
-        text: 'Aceptar',
-        role: 'cancel',
-      }
-      ]
-    });
-    toast.present();
-    console.log(message);
-  }
-
   //servicios externos
   obtenerClientes() {
-    this.getService.get(this.urlClientes).subscribe(async result => {
-      if (result.success) {
-        this.clientes = result.message;
-      } else {
-        this.showModalError(result.message);
-      }
+    super.consumirGet(this.urlClientes).then((data:any)=>{
+      this.clientes = data;
     });
   }
 
   obtenerCamiones() {
-    this.getService.get(this.urlCamiones).subscribe(async result => {
-      if (result.success) {
-        this.camiones = result.message;
-      } else {
-        this.showModalError(result.message);
-      }
+    super.consumirGet(this.urlCamiones).then((data:any)=>{
+      this.camiones = data;
     });
   }
 
   obtenerConductores() {
-    this.getService.get(this.urlConductores).subscribe(async result => {
-      if (result.success) {
-        this.conductores = result.message;
-      } else {
-        this.showModalError(result.message);
-      }
+    super.consumirGet(this.urlConductores).then((data:any)=>{
+      this.conductores = data;
     });
   }
 
   obtenerAuxiliares() {
-    this.getService.get(this.urlAuxiliares).subscribe(async result => {
-      if (result.success) {
-        this.auxiliares = result.message;
-      } else {
-        this.showModalError(result.message);
-      }
+    super.consumirGet(this.urlAuxiliares).then((data:any)=>{
+      this.auxiliares = data;
     });
   }
 
   obtenerOrigenesDestinos() {
-    console.log(this.urlOrigenDestinoCliente + this.cliente.id);
-    this.getService.get(this.urlOrigenDestinoCliente + this.cliente.id).subscribe(async result => {
-      if (result.success) {
-        this.origenesDestinos = result.message;
-      } else {
-        this.showModalError(result.message);
-      }
+    super.consumirGet(this.urlOrigenDestinoCliente, this.cliente.id).then((data:any)=>{
+      this.origenesDestinos = data;
     });
   }
-
-
 }

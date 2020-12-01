@@ -4,16 +4,14 @@ import { DetalleCamionComponent } from '../detalle-camion/detalle-camion.compone
 import { GetService } from '../services/get/get.service';
 import { Camion } from './camion';
 import { OverlayEventDetail } from '@ionic/core';
-import { Storage } from '@ionic/storage';
-
-
+import { GenericService } from '../utils/genericService';
 
 @Component({
   selector: 'app-camiones',
   templateUrl: './camiones.page.html',
   styleUrls: ['./camiones.page.scss'],
 })
-export class CamionesPage implements OnInit {
+export class CamionesPage extends GenericService implements OnInit {
 
   public camiones: Camion[];
   public cols: any[];
@@ -21,22 +19,15 @@ export class CamionesPage implements OnInit {
   public statusesPropio: any[];
   private url = "camiones";
 
-  constructor(private getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController, private storage: Storage) {
+  constructor(public getService: GetService,
+    public toastCtrl: ToastController,
+    public modalCtrl: ModalController) {
+    super(getService, null, null, toastCtrl, modalCtrl);
     this.camiones = [];
-    this.statuses = [
-      { label: 'Activo', value: 'true' },
-      { label: 'Inactivo', value: 'false' },
-    ];
     this.statusesPropio = [
       { label: 'Si', value: 'true' },
       { label: 'No', value: 'false' },
-    ];
-    this.cols = [
-      { field: 'placa', header: 'Placa' },
-      { field: 'remolque', header: 'Remolque' },
-      { field: 'esPropio', header: 'Propio' },
-      { field: 'activo', header: 'Estado' }
-    ];
+    ];    
   }
   
   ngOnInit() {
@@ -44,22 +35,8 @@ export class CamionesPage implements OnInit {
   }
 
   obtenerCamiones() {
-    this.getService.get(this.url).subscribe(async result => {
-      if (result.success) {
-        this.camiones = result.message;
-      } else {
-        const toast = await this.toastCtrl.create({
-          message: result.message,
-          position: "middle",
-          buttons: [{
-            text: 'Aceptar',
-            role: 'cancel',
-          }
-          ]
-        });
-        toast.present();
-        console.log(result.message);
-      }
+    super.consumirGet(this.url).then((data:any)=>{
+      this.camiones = data;
     });
   }
 
@@ -78,5 +55,4 @@ export class CamionesPage implements OnInit {
       }
     });
   }
-
 }

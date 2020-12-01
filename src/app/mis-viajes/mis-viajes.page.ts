@@ -3,7 +3,7 @@ import { OverlayEventDetail } from '@ionic/core';
 import { GetService } from '../services/get/get.service';
 import { ToastController, ModalController } from '@ionic/angular';
 import { Viaje } from '../programacion-viajes/viaje';
-import { genericService } from '../utils/genericService';
+import { GenericService } from '../utils/genericService';
 import { DetalleViajeComponent } from '../detalle-viaje/detalle-viaje.component';
 
 @Component({
@@ -11,13 +11,15 @@ import { DetalleViajeComponent } from '../detalle-viaje/detalle-viaje.component'
   templateUrl: './mis-viajes.page.html',
   styleUrls: ['./mis-viajes.page.scss'],
 })
-export class MisViajesPage extends genericService implements OnInit {
+export class MisViajesPage extends GenericService implements OnInit {
 
   public viajes: Viaje[];
   private url = "viajes/misViajes";
+  public cols: any[];
 
   constructor(public getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController) {
     super(getService, null, null, toastCtrl, modalCtrl);
+    
     this.viajes = [];  
   }
 

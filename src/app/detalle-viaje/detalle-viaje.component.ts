@@ -8,14 +8,14 @@ import { GetService } from '../services/get/get.service';
 import { PostService } from '../services/post/post.service';
 import { PutService } from '../services/put/put.service';
 import { Usuario } from '../usuarios/usuario';
-import { genericService } from '../utils/genericService';
+import { GenericService } from '../utils/genericService';
 
 @Component({
   selector: 'app-detalle-viaje',
   templateUrl: './detalle-viaje.component.html',
   styleUrls: ['./detalle-viaje.component.scss'],
 })
-export class DetalleViajeComponent extends genericService implements OnInit {
+export class DetalleViajeComponent extends GenericService implements OnInit {
 
   public viaje: Viaje;
   private url = "viajes";
@@ -89,8 +89,7 @@ export class DetalleViajeComponent extends genericService implements OnInit {
     }
   }
 
-  crearviaje() {
-    
+  crearviaje() {    
     this.viaje.idCliente = this.cliente.id;
     this.viaje.idOrigen = this.origen.id;
     this.viaje.idDestino = this.destino.id;
@@ -98,44 +97,7 @@ export class DetalleViajeComponent extends genericService implements OnInit {
     this.viaje.idConductor = this.conductor.id;
     this.viaje.idAuxiliar = this.auxiliar == null ? null : this.auxiliar.id;
     this.viaje.fecha = this.fecha;
-    console.log(this.viaje);
-    this.postService.post(this.url, this.viaje).subscribe(async result => {
-      const toast = await this.toastCtrl.create({
-        message: result.message,
-        position: "middle",
-        duration: result.success ? 3000 : 0,
-        color: result.success ? "success" : "danger",
-        buttons: result.success ? [] : [{
-          text: 'Aceptar',
-          role: 'cancel'
-        }
-        ]
-      });
-      toast.present();
-      if (result.success) {
-        this.dismiss(result);
-      }
-    }, async error => {
-      this.showModalError(error);
+    super.consumirPost(this.url, this.viaje).then((data:any)=>{
     });
   }
-
-  dismiss(result: any) {
-    this.modalCtrl.dismiss(result);
-  }
-
-  async showModalError(message: string){
-    const toast = await this.toastCtrl.create({
-      message: message,
-      position: "middle",
-      color: "danger",
-      buttons: [{
-        text: 'Aceptar',
-        role: 'cancel',
-      }
-      ]
-    });
-    toast.present();
-    console.log(message);
-  }  
 }

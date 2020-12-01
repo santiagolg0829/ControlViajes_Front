@@ -4,29 +4,29 @@ import { OverlayEventDetail } from '@ionic/core';
 import { GetService } from '../services/get/get.service';
 import { ToastController, ModalController } from '@ionic/angular';
 import { DetalleClienteComponent } from '../detalle-cliente/detalle-cliente.component';
+import { GenericService } from '../utils/genericService';
+import { PostService } from '../services/post/post.service';
+import { PutService } from '../services/put/put.service';
 
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.page.html',
   styleUrls: ['./clientes.page.scss'],
 })
-export class ClientesPage implements OnInit {
+export class ClientesPage extends GenericService implements OnInit {
 
   public clientes: Cliente[];
   public cols: any[];
   public statuses: any[];
   private url = "clientes";
 
-  constructor(private getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController) {
-    this.clientes = [];
-    this.statuses = [
-      { label: 'Activo', value: 'true' },
-      { label: 'Inactivo', value: 'false' },
-    ];
-    this.cols = [
-      { field: 'nombre', header: 'Nombre' },
-      { field: 'activo', header: 'Estado' }
-    ];
+  constructor(public getService: GetService,
+    public postService: PostService,
+    public putService: PutService,
+    public toastCtrl: ToastController,
+    public modalCtrl: ModalController) {
+    super(getService, null, null, toastCtrl, modalCtrl);
+    this.clientes = [];    
   }
 
   ngOnInit() {
@@ -34,22 +34,8 @@ export class ClientesPage implements OnInit {
   }
 
   obtenerClientes() {
-    this.getService.get(this.url).subscribe(async result => {
-      if (result.success) {
-        this.clientes = result.message;
-      } else {
-        const toast = await this.toastCtrl.create({
-          message: result.message,
-          position: "middle",
-          buttons: [{
-            text: 'Aceptar',
-            role: 'cancel',
-          }
-          ]
-        });
-        toast.present();
-        console.log(result.message);
-      }
+    super.consumirGet(this.url).then((data:any)=>{
+      this.clientes = data;
     });
   }
 
@@ -69,5 +55,5 @@ export class ClientesPage implements OnInit {
       }
     });
   }
-
+  
 }

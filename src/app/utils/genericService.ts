@@ -1,15 +1,11 @@
 import { GetService } from '../services/get/get.service';
 import { ToastController, ModalController } from '@ionic/angular';
-import { Subscription } from 'rxjs';
-import { Observable } from 'rxjs/internal/Observable';
 import { PostService } from '../services/post/post.service';
 import { PutService } from '../services/put/put.service';
 
-
-export class genericService{
+export class GenericService{
 
   public statuses: any[];
-  public cols: any[];
 
   constructor(
     public getService: GetService, 
@@ -20,16 +16,12 @@ export class genericService{
     this.statuses = [
       { label: 'Activo', value: 'true' },
       { label: 'Inactivo', value: 'false' },
-    ];
-    this.cols = [
-      { field: 'nombre', header: 'Nombre' },
-      { field: 'activo', header: 'Estado' }
     ];   
   }
 
-  consumirGet(url: string):  Promise<any> {
+  consumirGet(url: string, id?: any):  Promise<any> {
     return new Promise(resolve =>{
-      this.getService.get(url).subscribe(async result => {
+      this.getService.get(url, id).subscribe(async result => {
         if (result.success) {
           console.log(result.message);
           resolve(result.message);
@@ -38,12 +30,12 @@ export class genericService{
         }
       }, async error => {
         console.log(error);
-        this.showModalError('Error de conexión con el servidor.');      
+        this.showModalError(error.message);   
       });
     });
   }
 
-  consumirPost(url: string, model: any):  Promise<any> {
+  consumirPost(url: string, model: any): Promise<any> {
     return new Promise(resolve =>{
       this.postService.post(url, model).subscribe(async result => {
         const toast = await this.toastCtrl.create({
@@ -54,8 +46,35 @@ export class genericService{
           buttons: result.success ? [] : [{
             text: 'Aceptar',
             role: 'cancel'
-          }
-          ]
+          }]
+        });
+        toast.present();
+        if (result.success) {
+          resolve(result.message);
+          this.modalCtrl.dismiss(result);
+        } else {
+          this.showModalError(result.message);
+        }
+      }, async error => {
+        console.log(error);
+        this.showModalError(error.message);
+      });
+    });
+  }
+ 
+  consumirPut(url: string, id: any, model: any) : Promise<any> {
+
+    return new Promise(resolve =>{
+      this.putService.put(url, id, model).subscribe(async result => {
+        const toast = await this.toastCtrl.create({
+          message: result.message,
+          position: "middle",
+          duration: result.success ? 3000 : 0,
+          color: result.success ? "success" : "danger",
+          buttons: result.success ? [] : [{
+            text: 'Aceptar',
+            role: 'cancel'
+          }]
         });
         toast.present();
         if (result.success) {
@@ -63,9 +82,10 @@ export class genericService{
           this.modalCtrl.dismiss(result);
         }
       }, async error => {
-        this.showModalError(error);
+        console.log(error);
+        this.showModalError(error.message);
       });
-    });
+    });        
   }
 
   async showModalError(message: string){
@@ -76,10 +96,12 @@ export class genericService{
       buttons: [{
         text: 'Aceptar',
         role: 'cancel',
-      }
-      ]
+      }]
     });
     toast.present();
-    console.log(message);
+  }
+
+  dismiss(result: any) {
+    this.modalCtrl.dismiss(result);
   }
 } 
