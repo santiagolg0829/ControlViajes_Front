@@ -29,6 +29,7 @@ import { DetalleProgramacionViajesComponent } from './detalle-programacion-viaje
 import { DetalleViajeComponent } from './detalle-viaje/detalle-viaje.component';
 
 import { FirebaseX } from "@ionic-native/firebase-x/ngx";
+import { ChartModule } from 'primeng/chart';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { FirebaseX } from "@ionic-native/firebase-x/ngx";
     TableModule,
     DropdownModule,
     ButtonModule,
+    ChartModule,
     IonicSelectableModule,
     UserMenuComponentModule
   ],

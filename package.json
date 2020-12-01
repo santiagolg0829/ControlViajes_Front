@@ -22,6 +22,7 @@
     "@types/jasmine": "3.5.13",
     "@types/jasminewd2": "2.0.8",
     "@types/node": "12.12.54",
+    "@types/chart.js": "^2.7.48",
     "chart.js": "^2.9.4",
     "chartjs-plugin-datalabels": "^0.7.0",
     "font-awesome": "^4.7.0",
