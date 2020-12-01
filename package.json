@@ -23,6 +23,7 @@
     "@types/jasminewd2": "2.0.8",
     "@types/node": "12.12.54",
     "chart.js": "^2.9.4",
+    "chartjs-plugin-datalabels": "^0.7.0",
     "font-awesome": "^4.7.0",
     "ionic-selectable": "^4.7.1",
     "primeicons": "^4.0.0",

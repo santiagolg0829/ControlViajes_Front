@@ -7,13 +7,16 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-firebasex": {
-      "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
-      "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "true",
-      "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "true",
+      "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "false",
+      "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "false",
+      "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "false",
       "ANDROID_ICON_ACCENT": "#FF00FFFF",
       "ANDROID_FIREBASE_PERFORMANCE_MONITORING": "false",
       "ANDROID_PLAY_SERVICES_TAGMANAGER_VERSION": "17.0.0",
@@ -50,9 +53,6 @@
     "havesource-cordova-plugin-push": {
       "ANDROID_SUPPORT_V13_VERSION": "28.0.0",
       "FCM_VERSION": "18.+",
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },

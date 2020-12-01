@@ -10,6 +10,20 @@
           "/manifest/application": [
             {
               "xml": "<application android:networkSecurityConfig=\"@xml/network_security_config\" />",
+              "count": 2,
+              "mode": "merge",
+              "id": "config.xml",
+              "oldAttrib": {
+                "android:hardwareAccelerated": "true",
+                "android:icon": "@mipmap/ic_launcher",
+                "android:label": "@string/app_name",
+                "android:networkSecurityConfig": "@xml/network_security_config",
+                "android:supportsRtl": "true",
+                "android:usesCleartextTraffic": "true"
+              }
+            },
+            {
+              "xml": "<application android:usesCleartextTraffic=\"true\" />",
               "count": 1,
               "mode": "merge",
               "id": "config.xml",
@@ -18,7 +32,8 @@
                 "android:icon": "@mipmap/ic_launcher",
                 "android:label": "@string/app_name",
                 "android:networkSecurityConfig": "@xml/network_security_config",
-                "android:supportsRtl": "true"
+                "android:supportsRtl": "true",
+                "android:usesCleartextTraffic": "true"
               }
             }
           ]
@@ -92,15 +107,15 @@
               "count": 1
             },
             {
-              "xml": "<meta-data android:name=\"firebase_analytics_collection_enabled\" android:value=\"true\" />",
+              "xml": "<meta-data android:name=\"firebase_analytics_collection_enabled\" android:value=\"false\" />",
               "count": 1
             },
             {
-              "xml": "<meta-data android:name=\"firebase_performance_collection_enabled\" android:value=\"true\" />",
+              "xml": "<meta-data android:name=\"firebase_performance_collection_enabled\" android:value=\"false\" />",
               "count": 1
             },
             {
-              "xml": "<meta-data android:name=\"firebase_crashlytics_collection_enabled\" android:value=\"true\" />",
+              "xml": "<meta-data android:name=\"firebase_crashlytics_collection_enabled\" android:value=\"false\" />",
               "count": 1
             }
           ],
@@ -191,13 +206,16 @@
     }
   },
   "installed_plugins": {
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-firebasex": {
-      "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
-      "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "true",
-      "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "true",
+      "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "false",
+      "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "false",
+      "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "false",
       "ANDROID_ICON_ACCENT": "#FF00FFFF",
       "ANDROID_FIREBASE_PERFORMANCE_MONITORING": "false",
       "ANDROID_PLAY_SERVICES_TAGMANAGER_VERSION": "17.0.0",
@@ -234,9 +252,6 @@
     "havesource-cordova-plugin-push": {
       "ANDROID_SUPPORT_V13_VERSION": "28.0.0",
       "FCM_VERSION": "18.+",
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
@@ -300,6 +315,7 @@
     }
   ],
   "plugin_metadata": {
+    "cordova-plugin-androidx-adapter": "1.1.3",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-firebasex": "11.0.3",
     "cordova-plugin-ionic-keyboard": "2.2.0",
@@ -307,7 +323,6 @@
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "havesource-cordova-plugin-push": "1.0.0",
-    "cordova-plugin-androidx-adapter": "1.1.3"
+    "havesource-cordova-plugin-push": "1.0.0"
   }
 }

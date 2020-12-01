@@ -73,6 +73,10 @@ ion-header ion-toolbar:first-of-type {
 // Estilos de tablas
 .p-datatable {
 
+    input{
+        color: #666666;
+    }
+
     .p-datatable-tbody{
         input{
             width: 100%;

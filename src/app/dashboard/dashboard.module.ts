@@ -8,9 +8,11 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
 
-import {ChartModule} from 'primeng/chart';
+import { ChartModule } from 'primeng/chart';
 
 import { UserMenuComponentModule } from '../user-menu/user-menu.module';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   imports: [
@@ -19,8 +21,10 @@ import { UserMenuComponentModule } from '../user-menu/user-menu.module';
     IonicModule,
     DashboardPageRoutingModule,
     ChartModule,
+    TableModule,
+    DropdownModule,
     UserMenuComponentModule
   ],
   declarations: [DashboardPage]
 })
-export class DashboardPageModule {}
+export class DashboardPageModule { }

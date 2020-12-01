@@ -11,5 +11,145 @@
 </ion-header>
 
 <ion-content>
-  <p-chart type="pie" [data]="data" width="40vw" height="80vh"></p-chart>
+
+  <div class="dashboard-content">
+    <div class="vehiculos-propios-container">
+      <ion-title>
+        Vehiculos Propios
+      </ion-title>
+      <p-table #dtPropios [value]="vehiculos" styleClass="p-datatable-striped p-datatable-responsive-demo"
+        [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
+        [rowsPerPageOptions]="[10,25,50]">
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="placa">Placa <p-sortIcon field="placa"></p-sortIcon>
+            </th>
+            <th pSortableColumn="cliente">Cliente <p-sortIcon field="cliente"></p-sortIcon>
+            </th>
+            <th pSortableColumn="estadoRuta">Estado Ruta <p-sortIcon field="estadoRuta"></p-sortIcon>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <input pInputText type="text" (input)="dtPropios.filter($event.target.value, 'placa', 'contains')"
+                placeholder="Buscar por Placa" class="p-column-filter">
+            </th>
+            <th>
+              <input pInputText type="text" (input)="dtPropios.filter($event.target.value, 'cliente', 'contains')"
+                placeholder="Buscar por Cliente" class="p-column-filter">
+            </th>
+            <th>
+              <p-dropdown [options]="estadosRuta" (onChange)="dtPropios.filter($event.value, 'estadoRuta', 'equals')"
+                styleClass="p-column-filter" placeholder="Buscar por Estado Ruta" [showClear]="true">
+                <ng-template let-option pTemplate="item">
+                  <span>{{option.label}}</span>
+                </ng-template>
+              </p-dropdown>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-vehiculo>
+          <tr>
+            <td><span class="p-column-title">Placa </span>{{vehiculo.placa}}</td>
+            <td><span class="p-column-title">Cliente </span>{{vehiculo.cliente}}</td>
+            <td><span class="p-column-title">Estado Ruta
+              </span>{{vehiculo.estadoRuta == 0 ? "Inicio" : vehiculo.estadoRuta == 1 ? "Transito" : "Finalizado"}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <div class="vehiculos-terceros-container">
+      <ion-title>
+        Vehiculos Terceros
+      </ion-title>
+      <p-table #dtTerceros [value]="vehiculos" styleClass="p-datatable-striped p-datatable-responsive-demo"
+        [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
+        [rowsPerPageOptions]="[10,25,50]">
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="placa">Placa <p-sortIcon field="placa"></p-sortIcon>
+            </th>
+            <th pSortableColumn="cliente">Cliente <p-sortIcon field="cliente"></p-sortIcon>
+            </th>
+            <th pSortableColumn="estadoRuta">Estado Ruta <p-sortIcon field="estadoRuta"></p-sortIcon>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <input pInputText type="text" (input)="dtTerceros.filter($event.target.value, 'placa', 'contains')"
+                placeholder="Buscar por Placa" class="p-column-filter">
+            </th>
+            <th>
+              <input pInputText type="text" (input)="dtTerceros.filter($event.target.value, 'cliente', 'contains')"
+                placeholder="Buscar por Cliente" class="p-column-filter">
+            </th>
+            <th>
+              <p-dropdown [options]="estadosRuta" (onChange)="dtTerceros.filter($event.value, 'estadoRuta', 'equals')"
+                styleClass="p-column-filter" placeholder="Buscar por Estado Ruta" [showClear]="true">
+                <ng-template let-option pTemplate="item">
+                  <span>{{option.label}}</span>
+                </ng-template>
+              </p-dropdown>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-vehiculo>
+          <tr>
+            <td><span class="p-column-title">Placa </span>{{vehiculo.placa}}</td>
+            <td><span class="p-column-title">Cliente </span>{{vehiculo.cliente}}</td>
+            <td><span class="p-column-title">Estado Ruta
+              </span>{{vehiculo.estadoRuta == 0 ? "Inicio" : vehiculo.estadoRuta == 1 ? "Transito" : "Finalizado"}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <div class="indicadores-container">
+      <ion-title>
+        Indicadores
+      </ion-title>
+      <p-table #dtIndicadores [value]="indicadores" styleClass="p-datatable-striped p-datatable-responsive-demo"
+        [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
+        [rowsPerPageOptions]="[10,25,50]">
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="cliente">Cliente <p-sortIcon field="cliente"></p-sortIcon>
+            </th>
+            <th pSortableColumn="numeroViajes">Numero Viajes <p-sortIcon field="numeroViajes"></p-sortIcon>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <input pInputText type="text" (input)="dtIndicadores.filter($event.target.value, 'cliente', 'contains')"
+                placeholder="Buscar por Cliente" class="p-column-filter">
+            </th>
+            <th>
+              <input pInputText type="text"
+                (input)="dtIndicadores.filter($event.target.value, 'numeroViajes', 'contains')"
+                placeholder="Buscar por Numero Viajes" class="p-column-filter">
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-indicador>
+          <tr>
+            <td><span class="p-column-title">Cliente </span>{{indicador.cliente}}</td>
+            <td><span class="p-column-title">Numero Viajes </span>{{indicador.numeroViajes}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div class="ocupacion-flota-container">
+      <ion-title>
+        Ocupación Flota Propia
+      </ion-title>
+      <div>
+        <p-chart type="pie" [data]="data" width="50vh" height="50vh" [options]="options" [plugin]="plugin"></p-chart>
+      </div>
+    </div>
+  </div>
+
 </ion-content>
