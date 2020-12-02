@@ -23,7 +23,7 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
   private urlCamiones = "camiones";
   private urlConductores = "account/listarPorRol/conductor";
   private urlAuxiliares = "account/listarPorRol/auxiliar";
-  private urlOrigenDestinoCliente = "sedes/PorCliente/";
+  private urlOrigenDestinoCliente = "sedes/PorCliente";
   public clicked: boolean;
 
   public fecha: Date;
