@@ -61,6 +61,22 @@ export class GenericService{
       });
     });
   }
+
+  consumirPostSimple(url: string, model: any): Promise<any> {
+    return new Promise(resolve =>{
+      this.postService.post(url, model).subscribe(async result => {
+        
+        if (result.success) {
+          resolve(result.message);
+        } else {
+          this.showModalError(result.message);
+        }
+      }, async error => {
+        console.log(error);
+        this.showModalError(error.message);
+      });
+    });
+  }
  
   consumirPut(url: string, id: any, model: any) : Promise<any> {
 

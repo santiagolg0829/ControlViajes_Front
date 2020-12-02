@@ -42,6 +42,16 @@ export class AppComponent {
       title: 'Dashboard',
       url: '/dashboard',
       icon: 'bar-chart'
+    },
+    {
+      title: 'Historico Viajes',
+      url: '/historico-viajes',
+      icon: 'receipt-outline'
+    },
+    {
+      title: 'Ocupación Diaria',
+      url: '/ocupacion-diaria',
+      icon: 'layers-outline'
     }
   ];
 
