@@ -3,17 +3,16 @@ import { OverlayEventDetail } from '@ionic/core';
 import { GetService } from '../services/get/get.service';
 import { ToastController, ModalController } from '@ionic/angular';
 import { GenericService } from '../utils/genericService';
-import { Viaje } from '../programacion-viajes/viaje';
 import { PostService } from '../services/post/post.service';
 
 @Component({
-  selector: 'app-historico-viajes',
-  templateUrl: './historico-viajes.page.html',
-  styleUrls: ['./historico-viajes.page.scss'],
+  selector: 'app-ocupacion-diaria',
+  templateUrl: './ocupacion-diaria.page.html',
+  styleUrls: ['./ocupacion-diaria.page.scss'],
 })
-export class HistoricoViajesPage extends GenericService implements OnInit {
+export class OcupacionDiariaPage extends GenericService implements OnInit {
 
-  public viajes: Viaje[];
+  public lstOcupacionDiaria: any[];
   private url = "viajes";
   public cols: any[];
 
@@ -29,8 +28,8 @@ export class HistoricoViajesPage extends GenericService implements OnInit {
   }
 
   obtenerViajes() {
-    super.consumirPostSimple(this.url + '/historico', null).then((data:any)=>{
-      this.viajes = data;
+    super.consumirPostSimple(this.url + '/ocupacionDiaria', null).then((data:any)=>{
+      this.lstOcupacionDiaria = data;
     });
   }
 

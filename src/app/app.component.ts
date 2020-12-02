@@ -47,6 +47,11 @@ export class AppComponent {
       title: 'Historico Viajes',
       url: '/historico-viajes',
       icon: 'receipt-outline'
+    },
+    {
+      title: 'Ocupación Diaria',
+      url: '/ocupacion-diaria',
+      icon: 'layers-outline'
     }
   ];
 
