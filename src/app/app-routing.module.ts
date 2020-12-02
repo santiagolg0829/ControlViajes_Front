@@ -49,6 +49,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'historico-viajes',
+    loadChildren: () => import('./historico-viajes/historico-viajes.module').then( m => m.HistoricoViajesPageModule)
   }
 
 
