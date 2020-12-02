@@ -58,7 +58,7 @@ export class LoginComponent extends GenericService implements OnInit {
         this.storage.set('expiration', result.message.expiration);
         this.storage.set('nombre', result.message.nombre);
         this.loginForm.reset();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/mis-viajes']);
       } else {
         this.showModalError(result.message);
       }
