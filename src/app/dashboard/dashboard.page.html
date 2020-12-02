@@ -17,7 +17,7 @@
       <ion-title>
         Vehiculos Propios
       </ion-title>
-      <p-table #dtPropios [value]="vehiculos" styleClass="p-datatable-striped p-datatable-responsive-demo"
+      <p-table #dtPropios [value]="vehiculosPropios" styleClass="p-datatable-striped p-datatable-responsive-demo"
         [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
         [rowsPerPageOptions]="[10,25,50]">
@@ -27,7 +27,7 @@
             </th>
             <th pSortableColumn="cliente">Cliente <p-sortIcon field="cliente"></p-sortIcon>
             </th>
-            <th pSortableColumn="estadoRuta">Estado Ruta <p-sortIcon field="estadoRuta"></p-sortIcon>
+            <th pSortableColumn="numeroEstado">Estado Ruta <p-sortIcon field="numeroEstado"></p-sortIcon>
             </th>
           </tr>
           <tr>
@@ -40,7 +40,7 @@
                 placeholder="Buscar por Cliente" class="p-column-filter">
             </th>
             <th>
-              <p-dropdown [options]="estadosRuta" (onChange)="dtPropios.filter($event.value, 'estadoRuta', 'equals')"
+              <p-dropdown [options]="estadosRuta" (onChange)="dtPropios.filter($event.value, 'numeroEstado', 'equals')"
                 styleClass="p-column-filter" placeholder="Buscar por Estado Ruta" [showClear]="true">
                 <ng-template let-option pTemplate="item">
                   <span>{{option.label}}</span>
@@ -54,7 +54,7 @@
             <td><span class="p-column-title">Placa </span>{{vehiculo.placa}}</td>
             <td><span class="p-column-title">Cliente </span>{{vehiculo.cliente}}</td>
             <td><span class="p-column-title">Estado Ruta
-              </span>{{vehiculo.estadoRuta == 0 ? "Inicio" : vehiculo.estadoRuta == 1 ? "Transito" : "Finalizado"}}</td>
+              </span>{{vehiculo.numeroEstado == 0 ? "Inicio" : vehiculo.numeroEstado == 1 ? "Transito" : "Finalizado"}}</td>
           </tr>
         </ng-template>
       </p-table>
@@ -64,7 +64,7 @@
       <ion-title>
         Vehiculos Terceros
       </ion-title>
-      <p-table #dtTerceros [value]="vehiculos" styleClass="p-datatable-striped p-datatable-responsive-demo"
+      <p-table #dtTerceros [value]="vehiculosTerceros" styleClass="p-datatable-striped p-datatable-responsive-demo"
         [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
         [rowsPerPageOptions]="[10,25,50]">
@@ -74,7 +74,7 @@
             </th>
             <th pSortableColumn="cliente">Cliente <p-sortIcon field="cliente"></p-sortIcon>
             </th>
-            <th pSortableColumn="estadoRuta">Estado Ruta <p-sortIcon field="estadoRuta"></p-sortIcon>
+            <th pSortableColumn="numeroEstado">Estado Ruta <p-sortIcon field="numeroEstado"></p-sortIcon>
             </th>
           </tr>
           <tr>
@@ -87,7 +87,7 @@
                 placeholder="Buscar por Cliente" class="p-column-filter">
             </th>
             <th>
-              <p-dropdown [options]="estadosRuta" (onChange)="dtTerceros.filter($event.value, 'estadoRuta', 'equals')"
+              <p-dropdown [options]="estadosRuta" (onChange)="dtTerceros.filter($event.value, 'numeroEstado', 'equals')"
                 styleClass="p-column-filter" placeholder="Buscar por Estado Ruta" [showClear]="true">
                 <ng-template let-option pTemplate="item">
                   <span>{{option.label}}</span>
@@ -101,7 +101,7 @@
             <td><span class="p-column-title">Placa </span>{{vehiculo.placa}}</td>
             <td><span class="p-column-title">Cliente </span>{{vehiculo.cliente}}</td>
             <td><span class="p-column-title">Estado Ruta
-              </span>{{vehiculo.estadoRuta == 0 ? "Inicio" : vehiculo.estadoRuta == 1 ? "Transito" : "Finalizado"}}</td>
+              </span>{{vehiculo.numeroEstado == 0 ? "Inicio" : vehiculo.numeroEstado == 1 ? "Transito" : "Finalizado"}}</td>
           </tr>
         </ng-template>
       </p-table>
