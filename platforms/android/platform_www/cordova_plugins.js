@@ -66,6 +66,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "havesource-cordova-plugin-push": "1.0.0"
+    "havesource-cordova-plugin-push": "1.0.0",
+    "cordova-android-support-gradle-release": "3.0.1"
   };
 });
