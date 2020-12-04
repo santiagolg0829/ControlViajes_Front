@@ -20,7 +20,6 @@ export class LoginComponent extends GenericService implements OnInit {
   public loginForm: FormGroup;
   private url = "Account/login";
   public clicked: boolean;
-  public tokenFirebase: string;
 
   constructor(private router: Router,
     private storage: Storage,
@@ -38,33 +37,39 @@ export class LoginComponent extends GenericService implements OnInit {
   }
 
   ngOnInit() {
-    this.firebase.getToken()
-      .then(token => {
 
-        this.tokenFirebase = token;
-        console.log('The token is', token);
-      }) // save the token server-side and use it to push notifications to this device
-      .catch(error => console.error('Error getting token', error));
   }
 
 
   login(loginForm: any) {
     this.clicked = true;
-    loginForm.tokenFirebase = this.tokenFirebase;
-    this.postService.post(this.url, loginForm).subscribe(async result => {
-      if (result.success) {
-        this.storage.clear();
-        this.storage.set('token', result.message.token);
-        this.storage.set('expiration', result.message.expiration);
-        this.storage.set('nombre', result.message.nombre);
-        this.loginForm.reset();
-        this.router.navigate(['/mis-viajes']);
-      } else {
-        this.showModalError(result.message);
-      }
-    }, async error => {
-      this.showModalError(error.message);
-    });
+    this.firebase.getToken()
+      .then(token => {
+        console.log('The token is', token);
+        loginForm.tokenFirebase = token;
+        this.postService.post(this.url, loginForm).subscribe(async result => {
+          if (result.success) {
+            this.storage.clear();
+            this.storage.set('token', result.message.token);
+            this.storage.set('expiration', result.message.expiration);
+            this.storage.set('nombre', result.message.nombre);
+            this.loginForm.reset();
+            this.router.navigate(['/mis-viajes']);
+            this.clicked = false;
+          } else {
+            this.showModalError(result.message);
+            this.clicked = false;
+          }
+        }, async error => {
+          this.showModalError(error.message);
+          this.clicked = false;
+        });
+      }) // save the token server-side and use it to push notifications to this device
+      .catch(error => {
+        console.error('Error getting Firebase Token', error);
+        this.clicked = false;
+      });
+
   }
 
 }
