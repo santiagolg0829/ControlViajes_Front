@@ -54,7 +54,7 @@
             <td><span class="p-column-title">Placa </span>{{vehiculo.placa}}</td>
             <td><span class="p-column-title">Cliente </span>{{vehiculo.cliente}}</td>
             <td><span class="p-column-title">Estado Ruta
-              </span>{{vehiculo.numeroEstado == 0 ? "Inicio" : vehiculo.numeroEstado == 1 ? "Transito" : "Finalizado"}}</td>
+              </span>{{vehiculo.numeroEstado == 1 ? "Inicio" : vehiculo.numeroEstado == 2 ? "Transito" : "Finalizado"}}</td>
           </tr>
         </ng-template>
       </p-table>
@@ -101,7 +101,7 @@
             <td><span class="p-column-title">Placa </span>{{vehiculo.placa}}</td>
             <td><span class="p-column-title">Cliente </span>{{vehiculo.cliente}}</td>
             <td><span class="p-column-title">Estado Ruta
-              </span>{{vehiculo.numeroEstado == 0 ? "Inicio" : vehiculo.numeroEstado == 1 ? "Transito" : "Finalizado"}}</td>
+              </span>{{vehiculo.numeroEstado == 1 ? "Inicio" : vehiculo.numeroEstado == 2 ? "Transito" : "Finalizado"}}</td>
           </tr>
         </ng-template>
       </p-table>
@@ -144,10 +144,12 @@
     </div>
     <div class="ocupacion-flota-container">
       <ion-title>
-        Ocupación Flota Propia
+        Ocupación Flota Propia 
       </ion-title>
+      <div>Acumulado mes: {{ acumuladoMes | currency }}</div>
+      <div>Acumulado día: {{ sumaAnticiposDia | currency }}</div>
       <div>
-        <p-chart type="pie" [data]="data" width="50vh" height="50vh" [options]="options"></p-chart>
+        <p-chart type="pie" [data]="data" width="40vh" height="40vh" [options]="options"></p-chart>
       </div>
     </div>
   </div>
