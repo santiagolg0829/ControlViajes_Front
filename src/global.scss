@@ -42,6 +42,16 @@ ion-header ion-toolbar:first-of-type {
 }
 
 
+ion-router-outlet{
+    ion-toolbar {
+        --color: white;
+        --background: #496427;
+    }
+}
+
+
+
+
 // Estilos de botones
 .primary-button{
     .p-button{

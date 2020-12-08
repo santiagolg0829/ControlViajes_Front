@@ -14,10 +14,10 @@
 <ion-content class="ion-padding">
 
   <ion-item>
-    <ion-label>Fecha</ion-label>  
-    <ion-datetime placeholder="Fecha Programada" displayFormat= "YYYY/MM/DD h:mm A" [(ngModel)]="fecha" >
+    <ion-label>Fecha</ion-label>
+    <ion-datetime placeholder="Fecha Programada" displayFormat="YYYY/MM/DD h:mm A" [(ngModel)]="fecha">
     </ion-datetime>
-  </ion-item> 
+  </ion-item>
 
   <ion-item>
     <ion-label>Cliente</ion-label>
@@ -59,8 +59,8 @@
 
   <ion-item>
     <ion-label>Conductor</ion-label>
-    <ionic-selectable #portComponent1 [(ngModel)]="conductor" [items]="conductores" itemValueField="id" itemTextField="nombre"
-      [canSearch]="true">
+    <ionic-selectable #portComponent1 [(ngModel)]="conductor" [items]="conductores" itemValueField="id"
+      itemTextField="nombre" [canSearch]="true">
       <ng-template ionicSelectableHeaderTemplate>
         <ion-toolbar>
           <ion-title>
@@ -78,8 +78,8 @@
 
   <ion-item>
     <ion-label>Auxiliar</ion-label>
-    <ionic-selectable #portComponent2 [(ngModel)]="auxiliar" [items]="auxiliares" itemValueField="id" itemTextField="nombre"
-      [canSearch]="true">
+    <ionic-selectable #portComponent2 [(ngModel)]="auxiliar" [items]="auxiliares" itemValueField="id"
+      itemTextField="nombre" [canSearch]="true">
       <ng-template ionicSelectableHeaderTemplate>
         <ion-toolbar>
           <ion-title>
@@ -97,8 +97,8 @@
 
   <ion-item>
     <ion-label>Origen</ion-label>
-    <ionic-selectable #portComponent3 [(ngModel)]="origen" [items]="origenesDestinos" itemValueField="id" itemTextField="nombre"
-      [canSearch]="true">
+    <ionic-selectable #portComponent3 [(ngModel)]="origen" [items]="origenesDestinos" itemValueField="id"
+      itemTextField="nombre" [canSearch]="true">
       <ng-template ionicSelectableHeaderTemplate>
         <ion-toolbar>
           <ion-title>
@@ -116,8 +116,8 @@
 
   <ion-item>
     <ion-label>Destino</ion-label>
-    <ionic-selectable #portComponent4 [(ngModel)]="destino" [items]="origenesDestinos" itemValueField="id" itemTextField="nombre"
-      [canSearch]="true">
+    <ionic-selectable #portComponent4 [(ngModel)]="destino" [items]="origenesDestinos" itemValueField="id"
+      itemTextField="nombre" [canSearch]="true">
       <ng-template ionicSelectableHeaderTemplate>
         <ion-toolbar>
           <ion-title>
@@ -148,6 +148,7 @@
     <ion-input type="text" [(ngModel)]="viaje.numeroCuenta"></ion-input>
   </ion-item>
 
-  <ion-button (click)="acutalizarViaje()" [disabled]="clicked">{{ viaje.estado == "Sin Iniciar" ? "Iniciar" : "Finalizar" }}</ion-button>
+  <ion-button (click)="acutalizarViaje()" [disabled]="clicked" *ngIf="roles.includes('Conductor') || roles.includes('Administrador')">
+    {{ viaje.estado == "Sin Iniciar" ? "Iniciar" : "Finalizar" }}</ion-button>
 
 </ion-content>

@@ -75,6 +75,7 @@ export class LoginComponent extends GenericService implements OnInit {
           this.storage.set('token', result.message.token);
           this.storage.set('expiration', result.message.expiration);
           this.storage.set('nombre', result.message.nombre);
+          this.storage.set('roles',result.message.roles);
           this.loginForm.reset();
           this.router.navigate(['/mis-viajes']);
           this.clicked = false;

@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NavigationEnd, Router } from '@angular/router';
+
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -12,6 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
 
+  public roles = [];
   public appPages = [
     {
       title: 'Camiones',
@@ -59,17 +63,35 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private menu: MenuController
+    private menu: MenuController,
+    private router: Router,
+    private storage: Storage
   ) {
     this.initializeApp();
+    this.router.events.subscribe((ev) => {
+      if (ev instanceof NavigationEnd) {
+        this.storage.get("roles").then((val) => {
+          if (val != null) {
+            this.roles = val;
+            if (!this.roles.includes('Administrador') && this.router.url !=
+              '/mis-viajes') {
+              this.router.navigate(['/mis-viajes']);
+            }
+          } else {
+            this.roles = [];
+            if (this.router.url != '/login') {
+              this.router.navigate(['/login']);
+            }
+          }
+        });
+      }
+    });
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
-
     });
   }
 

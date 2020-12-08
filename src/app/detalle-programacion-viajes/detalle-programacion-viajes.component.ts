@@ -70,7 +70,7 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
     this.obtenerAuxiliares();
 
     if (this.id != null) {
-      super.consumirGet(this.url, this.id).then((data:any)=>{
+      super.consumirGet(this.url, this.id).then((data: any) => {
         this.viaje = data;
         this.cliente = data.cliente;
         this.camion = data.camion;
@@ -84,7 +84,7 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
   }
 
   async guardar() {
-    this.clicked = true;
+    // this.clicked = true;
     if (this.id != null) {
       this.actualizarviaje();
     } else {
@@ -92,7 +92,7 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
     }
   }
 
-  crearviaje() {    
+  crearviaje() {
     this.viaje.idCliente = this.cliente.id;
     this.viaje.idOrigen = this.origen.id;
     this.viaje.idDestino = this.destino.id;
@@ -100,16 +100,18 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
     this.viaje.idConductor = this.conductor.id;
     this.viaje.idAuxiliar = this.auxiliar == null ? null : this.auxiliar.id;
     this.viaje.fecha = this.fecha;
-    
+
     console.log(this.viaje);
-    super.consumirPost(this.url, this.viaje).then((data:any)=>{
+    super.consumirPost(this.url, this.viaje).then((data: any) => {
       this.clientes = data;
+      this.clicked = false;
     });
   }
 
   actualizarviaje() {
-    super.consumirPut(this.url, this.id, this.viaje).then((data:any)=>{
+    super.consumirPut(this.url, this.id, this.viaje).then((data: any) => {
       this.clientes = data;
+      this.clicked = false;
     });
   }
 
@@ -119,31 +121,31 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
 
   //servicios externos
   obtenerClientes() {
-    super.consumirGet(this.urlClientes).then((data:any)=>{
+    super.consumirGet(this.urlClientes).then((data: any) => {
       this.clientes = data;
     });
   }
 
   obtenerCamiones() {
-    super.consumirGet(this.urlCamiones).then((data:any)=>{
+    super.consumirGet(this.urlCamiones).then((data: any) => {
       this.camiones = data;
     });
   }
 
   obtenerConductores() {
-    super.consumirGet(this.urlConductores).then((data:any)=>{
+    super.consumirGet(this.urlConductores).then((data: any) => {
       this.conductores = data;
     });
   }
 
   obtenerAuxiliares() {
-    super.consumirGet(this.urlAuxiliares).then((data:any)=>{
+    super.consumirGet(this.urlAuxiliares).then((data: any) => {
       this.auxiliares = data;
     });
   }
 
   obtenerOrigenesDestinos() {
-    super.consumirGet(this.urlOrigenDestinoCliente, this.cliente.id).then((data:any)=>{
+    super.consumirGet(this.urlOrigenDestinoCliente, this.cliente.id).then((data: any) => {
       this.origenesDestinos = data;
     });
   }

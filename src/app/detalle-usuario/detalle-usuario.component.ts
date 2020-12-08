@@ -68,6 +68,9 @@ export class DetalleUsuarioComponent extends GenericService implements OnInit {
   }
 
   actualizarUsuario() {
+    if (this.usuario.password == "") {
+      this.usuario.password = null;
+    }
     super.consumirPut(this.urlEdicion, this.id, this.usuario).then((data:any)=>{
     });    
   }

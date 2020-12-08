@@ -5,6 +5,7 @@ import { ToastController, ModalController } from '@ionic/angular';
 import { Viaje } from '../programacion-viajes/viaje';
 import { GenericService } from '../utils/genericService';
 import { DetalleViajeComponent } from '../detalle-viaje/detalle-viaje.component';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-mis-viajes',
@@ -16,19 +17,25 @@ export class MisViajesPage extends GenericService implements OnInit {
   public viajes: Viaje[];
   private url = "viajes/misViajes";
   public cols: any[];
+  public roles = [];
 
-  constructor(public getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController) {
+  constructor(public getService: GetService, public toastCtrl: ToastController, public modalCtrl: ModalController, private storage: Storage) {
     super(getService, null, null, toastCtrl, modalCtrl);
-    
-    this.viajes = [];  
+
+    this.viajes = [];
   }
 
   ngOnInit() {
+    this.storage.get("roles").then((val) => {
+      if (val != null) {
+        this.roles = val;
+      }
+    });
     this.obtenerViajes();
   }
 
-  obtenerViajes(){
-    super.consumirGet(this.url).then((data:any)=>{
+  obtenerViajes() {
+    super.consumirGet(this.url).then((data: any) => {
       this.viajes = data;
     });
   }
@@ -44,9 +51,7 @@ export class MisViajesPage extends GenericService implements OnInit {
     });
     modal.present();
     await modal.onWillDismiss().then((result: OverlayEventDetail) => {
-      if (result.data != null && result.data.success) {
-        this.obtenerViajes();
-      }
+      this.obtenerViajes();
     });
   }
 

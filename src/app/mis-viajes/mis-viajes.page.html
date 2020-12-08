@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot="start" *ngIf="roles.includes('Administrador')">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
@@ -16,17 +16,24 @@
     styleClass="p-datatable-striped p-datatable-responsive-demo" [paginator]="true" [rows]="10"
     [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
     [rowsPerPageOptions]="[10,25,50]">
-
+    
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="fecha">Fecha <p-sortIcon field="fecha"></p-sortIcon></th>
-        <th pSortableColumn="placa">Placa <p-sortIcon field="placa"></p-sortIcon></th>
+        <th pSortableColumn="fecha">Fecha <p-sortIcon field="fecha"></p-sortIcon>
+        </th>
+        <th pSortableColumn="placa">Placa <p-sortIcon field="placa"></p-sortIcon>
+        </th>
 
-        <th pSortableColumn="auxiliar">Auxiliar <p-sortIcon field="auxiliar"></p-sortIcon></th>
-        <th pSortableColumn="nombreCliente">Cliente <p-sortIcon field="nombreCliente"></p-sortIcon></th>
-        <th pSortableColumn="nombreOrigen">Origen <p-sortIcon field="nombreOrigen"></p-sortIcon></th>
-        <th pSortableColumn="nombreDestino">Destino <p-sortIcon field="nombreDestino"></p-sortIcon></th>
-        <th pSortableColumn="estado">Estado <p-sortIcon field="estado"></p-sortIcon></th>
+        <th pSortableColumn="auxiliar">Auxiliar <p-sortIcon field="auxiliar"></p-sortIcon>
+        </th>
+        <th pSortableColumn="nombreCliente">Cliente <p-sortIcon field="nombreCliente"></p-sortIcon>
+        </th>
+        <th pSortableColumn="nombreOrigen">Origen <p-sortIcon field="nombreOrigen"></p-sortIcon>
+        </th>
+        <th pSortableColumn="nombreDestino">Destino <p-sortIcon field="nombreDestino"></p-sortIcon>
+        </th>
+        <th pSortableColumn="estado">Estado <p-sortIcon field="estado"></p-sortIcon>
+        </th>
 
         <th rowspan="2" class="action-column">Acciones</th>
       </tr>
