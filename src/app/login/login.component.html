@@ -4,7 +4,7 @@
     <div class="login-container">
       <div class="shadow-container">
         <img src="../../assets/logo-imd.png" alt="logo">
-        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+        <form [formGroup]="loginForm" (ngSubmit)="checkDevice(loginForm.value)">
           <ion-item>
             <ion-label position="floating">Documento/Correo Electrónico</ion-label>
             <ion-input id="email" type="text" formControlName="email"></ion-input>

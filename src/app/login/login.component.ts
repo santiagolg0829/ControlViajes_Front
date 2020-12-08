@@ -7,6 +7,7 @@ import { PostService } from '../services/post/post.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { GenericService } from '../utils/genericService';
 import { FirebaseX } from '@ionic-native/firebase-x/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,8 @@ export class LoginComponent extends GenericService implements OnInit {
     public toastCtrl: ToastController,
     public modalCtrl: ModalController,
     private formBuilder: FormBuilder,
-    private firebase: FirebaseX) {
+    private firebase: FirebaseX,
+    public platform: Platform) {
     super(null, postService, null, toastCtrl, modalCtrl);
     this.loginForm = this.formBuilder.group({
       email: '',
@@ -41,35 +43,50 @@ export class LoginComponent extends GenericService implements OnInit {
   }
 
 
-  login(loginForm: any) {
+  checkDevice(loginForm: any) {
     this.clicked = true;
-    this.firebase.getToken()
-      .then(token => {
-        console.log('The token is', token);
-        loginForm.tokenFirebase = token;
-        this.postService.post(this.url, loginForm).subscribe(async result => {
-          if (result.success) {
-            this.storage.clear();
-            this.storage.set('token', result.message.token);
-            this.storage.set('expiration', result.message.expiration);
-            this.storage.set('nombre', result.message.nombre);
-            this.loginForm.reset();
-            this.router.navigate(['/mis-viajes']);
-            this.clicked = false;
-          } else {
-            this.showModalError(result.message);
-            this.clicked = false;
-          }
-        }, async error => {
-          this.showModalError(error.message);
+    if (this.platform.is("desktop")) {
+      this.login(loginForm, null);
+    } else if (this.platform.is("mobile")) {
+      this.firebase.getToken()
+        .then(token => {
+          this.login(loginForm, token)
+        }) // save the token server-side and use it to push notifications to this device
+        .catch(async error => {
+          console.error('Error getting Firebase Token', error);
+          const toast = await this.toastCtrl.create({
+            message: error,
+            position: "middle",
+            duration: 3000,
+            color: "danger"
+          });
+          toast.present();
           this.clicked = false;
         });
-      }) // save the token server-side and use it to push notifications to this device
-      .catch(error => {
-        console.error('Error getting Firebase Token', error);
-        this.clicked = false;
-      });
+    }
 
+  }
+
+  login(loginForm: any, tokenFirebase) {
+    loginForm.tokenFirebase = tokenFirebase;
+    this.postService.post(this.url, loginForm).subscribe(async result => {
+      if (result.success) {
+        this.storage.clear().then(resultStorage => {
+          this.storage.set('token', result.message.token);
+          this.storage.set('expiration', result.message.expiration);
+          this.storage.set('nombre', result.message.nombre);
+          this.loginForm.reset();
+          this.router.navigate(['/mis-viajes']);
+          this.clicked = false;
+        });
+      } else {
+        this.showModalError(result.message);
+        this.clicked = false;
+      }
+    }, async error => {
+      this.showModalError(error.message);
+      this.clicked = false;
+    });
   }
 
 }
