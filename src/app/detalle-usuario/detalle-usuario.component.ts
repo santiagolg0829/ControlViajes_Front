@@ -60,6 +60,7 @@ export class DetalleUsuarioComponent extends GenericService implements OnInit {
     } else {
       this.crearUsuario();
     }
+    this.clicked = false;
   }
 
   crearUsuario() {    

@@ -43,6 +43,7 @@ export class DetalleCamionComponent extends GenericService implements OnInit {
     } else {
       this.crearCamion();
     }
+    this.clicked = false;
   }
 
   crearCamion() {

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseServer: 'http://34.121.0.44:8081/', //'http://localhost:60674/',
-  baseUrl: 'http://34.121.0.44:8081/api/', //'http://localhost:60674/api/'
+  baseServer: 'http://localhost:60674/',
+  baseUrl: 'http://localhost:60674/api/'
 };
 
 /*

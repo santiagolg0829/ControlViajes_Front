@@ -50,6 +50,7 @@ export class DetalleClienteComponent extends GenericService implements OnInit {
     } else {
       this.crearCliente();
     }
+    this.clicked = false;
   }
 
   crearCliente() {

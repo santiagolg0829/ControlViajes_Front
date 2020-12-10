@@ -92,11 +92,13 @@ export class DetalleViajeComponent extends GenericService implements OnInit {
   }
 
   async acutalizarViaje() {
+    this.clicked = true;
     if (this.viaje.inicioRuta === null || this.viaje.finRuta === null) {
       super.consumirPost(this.url + "/actualizarEstado", this.viaje).then((data: any) => { });
     } else {
       //super.consumirPost(this.url + "/actualizarEstado",this.viaje).then((data:any)=>{});  
     }
+    this.clicked = false;
   }
 
   crearviaje() {

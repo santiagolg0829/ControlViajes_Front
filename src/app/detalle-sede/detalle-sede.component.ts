@@ -43,6 +43,7 @@ export class DetalleSedeComponent extends GenericService implements OnInit {
     } else {
       this.crearSede();
     }
+    this.clicked = false;
   }
 
   crearSede() {

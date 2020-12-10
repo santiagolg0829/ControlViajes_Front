@@ -90,6 +90,7 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
     } else {
       this.crearviaje();
     }
+    this.clicked = false;
   }
 
   crearviaje() {
