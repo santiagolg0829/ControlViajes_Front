@@ -84,7 +84,7 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
   }
 
   async guardar() {
-    // this.clicked = true;
+    this.clicked = true;
     if (this.id != null) {
       this.actualizarviaje();
     } else {
