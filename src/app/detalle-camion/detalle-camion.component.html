@@ -33,6 +33,18 @@
     <ion-checkbox [(ngModel)]="camion.activo"></ion-checkbox>
   </ion-item>
 
-  <ion-button class="primary-button" [disabled]="clicked" (click)="guardar()">Guardar</ion-button>
+  <ion-item>
+    <ion-label>En Taller</ion-label>
+    <ion-label class="ion-text-right">{{camion.estadoTaller ? "Si":"No"}}</ion-label>
+  </ion-item>
+
+  <ion-row>
+    <ion-col  size="6">
+      <ion-button class="primary-button" [disabled]="clicked" (click)="guardar()">Guardar</ion-button>
+    </ion-col>
+    <ion-col class="ion-text-right" size="6">
+      <ion-button (click)="EnviarTaller()"  [disabled]="disabledTaller">{{ camion.estadoTaller ? "Sacar del Taller" : "Enviar al Taller" }}</ion-button>
+    </ion-col>
+  </ion-row>
 
 </ion-content>

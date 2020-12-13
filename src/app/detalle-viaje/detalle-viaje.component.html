@@ -148,7 +148,20 @@
     <ion-input type="text" [(ngModel)]="viaje.numeroCuenta"></ion-input>
   </ion-item>
 
-  <ion-button (click)="acutalizarViaje()" [disabled]="clicked" *ngIf="roles.includes('Conductor') || roles.includes('Administrador')">
-    {{ viaje.estado == "Sin Iniciar" ? "Iniciar" : "Finalizar" }}</ion-button>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button (click)="acutalizarViaje()" [disabled]="clicked"  *ngIf="roles.includes('Conductor') || roles.includes('Administrador')">
+        {{ viaje.estado == "Sin Iniciar" ? "Iniciar" : "Finalizar" }}
+      </ion-button>
+    </ion-col>
+    <ion-col class="ion-text-right" size="6">
+      <ion-button (click)="EnviarTaller()"  [disabled]="disabledTaller" *ngIf="roles.includes('Conductor') || roles.includes('Administrador')">
+        {{ viaje.estado == "Taller" ? "Sacar del Taller" : "Enviar al Taller" }}
+      </ion-button>
+    </ion-col>
+
+  </ion-row>
+
+
 
 </ion-content>

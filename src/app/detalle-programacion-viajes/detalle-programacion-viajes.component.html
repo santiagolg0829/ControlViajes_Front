@@ -40,14 +40,14 @@
 
   <ion-item>
     <ion-label>Placa</ion-label>
-    <ionic-selectable #portComponent [(ngModel)]="camion" [items]="camiones" itemValueField="id" itemTextField="placa"
+    <ionic-selectable #portComponent0 [(ngModel)]="camion" [items]="camiones" itemValueField="id" itemTextField="placa"
       [canSearch]="true">
       <ng-template ionicSelectableHeaderTemplate>
         <ion-toolbar>
           <ion-title>
             <div class="modal-title">
               <span>Camiones</span>
-              <ion-button fill="clear" color="dark" (click)="portComponent.close()">
+              <ion-button fill="clear" color="dark" (click)="portComponent0.close()">
                 <ion-icon name="close-circle" style="font-size: 24px;"></ion-icon>
               </ion-button>
             </div>

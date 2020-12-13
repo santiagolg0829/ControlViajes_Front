@@ -103,17 +103,19 @@ export class DashboardPage extends GenericService implements OnInit {
     this.acumuladoMes = this.dashboard.acumuladoMes;
     this.sumaAnticiposDia = this.dashboard.sumaAnticiposDia;
     this.data = {
-      labels: ['Activos', 'Inactivos'],
+      labels: ['Activos', 'Inactivos', 'Taller'],
       datasets: [
         {
           data: this.dashboard.lstDatosTorta,
           backgroundColor: [
             "#36A2EB",
-            "#FFCE56"
+            "#FFCE56",
+            "#AA023A"
           ],
           hoverBackgroundColor: [
             "#496427",
-            "#a29fa0"
+            "#a29fa0",
+            "#AA023A"
           ]
         }]
     };

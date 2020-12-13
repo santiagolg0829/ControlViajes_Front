@@ -3,6 +3,7 @@ export class Camion{
     placa: string;
     remolque:string;
     esPropio:boolean;
+    estadoTaller:boolean;
     activo: boolean;
 
     constructor(){
@@ -11,5 +12,6 @@ export class Camion{
         this.remolque = "";
         this.esPropio = true;
         this.activo = true;
+        this.estadoTaller = false;
     }
 }

@@ -50,17 +50,18 @@ export class DetalleClienteComponent extends GenericService implements OnInit {
     } else {
       this.crearCliente();
     }
-    this.clicked = false;
   }
 
   crearCliente() {
     super.consumirPost(this.url, this.cliente).then((data:any)=>{
       this.cliente = data;
+      this.clicked = false;
     });
   }
 
   actualizarCliente() {
     super.consumirPut(this.url, this.id, this.cliente).then((data:any)=>{
+      this.clicked = false;
     });
   }
   

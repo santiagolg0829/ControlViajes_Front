@@ -43,16 +43,17 @@ export class DetalleSedeComponent extends GenericService implements OnInit {
     } else {
       this.crearSede();
     }
-    this.clicked = false;
   }
 
   crearSede() {
     super.consumirPost(this.url, this.sede).then((data:any)=>{
+      this.clicked = false;
     });
   }
 
   actualizarSede() {
     super.consumirPut(this.url, this.id, this.sede).then((data:any)=>{
+      this.clicked = false;
     });
   }
 

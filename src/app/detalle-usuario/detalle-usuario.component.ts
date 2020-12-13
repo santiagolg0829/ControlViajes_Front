@@ -53,18 +53,19 @@ export class DetalleUsuarioComponent extends GenericService implements OnInit {
   }
 
   async guardar() {
-    this.clicked = false;
+    this.clicked = true;
     this.usuario.idCliente = this.cliente.id;
     if (this.id != null) {
       this.actualizarUsuario();
     } else {
       this.crearUsuario();
     }
-    this.clicked = false;
+
   }
 
   crearUsuario() {    
     super.consumirPost(this.urlCreacion, this.usuario).then((data:any)=>{
+      this.clicked = false;
     });
   }
 
@@ -73,6 +74,7 @@ export class DetalleUsuarioComponent extends GenericService implements OnInit {
       this.usuario.password = null;
     }
     super.consumirPut(this.urlEdicion, this.id, this.usuario).then((data:any)=>{
+      this.clicked = false;
     });    
   }
 }

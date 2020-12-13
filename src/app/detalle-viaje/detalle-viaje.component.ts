@@ -10,7 +10,7 @@ import { PutService } from '../services/put/put.service';
 import { Usuario } from '../usuarios/usuario';
 import { GenericService } from '../utils/genericService';
 import { Storage } from '@ionic/storage';
-
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle-viaje',
@@ -21,12 +21,9 @@ export class DetalleViajeComponent extends GenericService implements OnInit {
 
   public viaje: Viaje;
   private url = "viajes";
-  private urlClientes = "clientes";
-  private urlCamiones = "camiones";
-  private urlConductores = "account/listarPorRol/conductor"
-  private urlAuxiliares = "account/listarPorRol/auxiliar"
-  private urlOrigenDestinoCliente = "sedes/PorCliente/"
+  private urlTaller = "camiones/CambiarEstadoTaller"
   public clicked: boolean;
+  public disabledTaller:boolean;
   public roles = [];
 
   public fecha: Date;
@@ -55,7 +52,8 @@ export class DetalleViajeComponent extends GenericService implements OnInit {
     public putService: PutService,
     public toastCtrl: ToastController,
     public modalCtrl: ModalController,
-    private storage: Storage) {
+    private storage: Storage,
+    public alertController: AlertController) {
     super(getService, postService, putService, toastCtrl, modalCtrl);
     this.viaje = new Viaje();
     this.cliente = new Cliente();
@@ -65,7 +63,8 @@ export class DetalleViajeComponent extends GenericService implements OnInit {
     this.origen = new Sede();
     this.destino = new Sede();
     this.clicked = false;
-
+    this.disabledTaller = false;
+    
   }
 
   ngOnInit() {
@@ -86,19 +85,18 @@ export class DetalleViajeComponent extends GenericService implements OnInit {
         this.fecha = data.fecha;
         this.destino.nombre = data.sedeOrigen.direccion;
         this.habilidato = this.viaje.estado === "Finalizado" ? true : false;
+        this.disabledTaller = this.viaje.estado === "Finalizado" ? true : false;
       });
     }
-
   }
 
   async acutalizarViaje() {
     this.clicked = true;
     if (this.viaje.inicioRuta === null || this.viaje.finRuta === null) {
-      super.consumirPost(this.url + "/actualizarEstado", this.viaje).then((data: any) => { });
-    } else {
-      //super.consumirPost(this.url + "/actualizarEstado",this.viaje).then((data:any)=>{});  
-    }
-    this.clicked = false;
+      super.consumirPost(this.url + "/actualizarEstado", this.viaje).then((data: any) => {
+        this.clicked = false;
+       });
+    } 
   }
 
   crearviaje() {
@@ -112,4 +110,31 @@ export class DetalleViajeComponent extends GenericService implements OnInit {
     super.consumirPost(this.url, this.viaje).then((data: any) => {
     });
   }
+
+  async EnviarTaller() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Advertencia!',
+      message: '¿Estas seguro que deseas realizar esta acción?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {          
+          }
+        }, {
+          text: 'Aceptar',
+          handler: () => {
+            this.disabledTaller = true;
+            super.consumirPut(this.urlTaller, this.viaje.idCamion, null).then((data: any) => {
+              this.disabledTaller = false;
+             });
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+  
 }

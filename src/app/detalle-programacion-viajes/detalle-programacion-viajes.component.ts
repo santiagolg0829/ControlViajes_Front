@@ -19,8 +19,8 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
 
   public viaje: Viaje;
   private url = "viajes";
-  private urlClientes = "clientes";
-  private urlCamiones = "camiones";
+  private urlClientes = "clientes/activos";
+  private urlCamiones = "camiones/activos";
   private urlConductores = "account/listarPorRol/conductor";
   private urlAuxiliares = "account/listarPorRol/auxiliar";
   private urlOrigenDestinoCliente = "sedes/PorCliente";
@@ -60,7 +60,6 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
     this.origen = new Sede();
     this.destino = new Sede();
     this.clicked = false;
-
   }
 
   ngOnInit() {
@@ -89,8 +88,7 @@ export class DetalleProgramacionViajesComponent extends GenericService implement
       this.actualizarviaje();
     } else {
       this.crearviaje();
-    }
-    this.clicked = false;
+    }    
   }
 
   crearviaje() {
