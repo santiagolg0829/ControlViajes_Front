@@ -35,6 +35,10 @@ export class Usuario {
             {
                 "nombre": "Conductor",
                 "seleccionado": false
+            },
+            {
+                "nombre": "Dashboard",
+                "seleccionado": false
             }
         ];
         this.activo = true;

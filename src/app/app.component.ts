@@ -73,10 +73,14 @@ export class AppComponent {
         this.storage.get("roles").then((val) => {
           if (val != null) {
             this.roles = val;
-            if (!this.roles.includes('Administrador') && this.router.url !=
-              '/mis-viajes') {
+            if (this.roles.includes('Dashboard') && !this.roles.includes('Administrador') && this.router.url != '/dashboard') {
+              this.router.navigate(['/dashboard']);
+            } 
+
+            if (!this.roles.includes('Dashboard') && !this.roles.includes('Administrador') &&  this.router.url != '/mis-viajes') {
               this.router.navigate(['/mis-viajes']);
-            }
+            }             
+             
           } else {
             this.roles = [];
             if (this.router.url != '/login') {

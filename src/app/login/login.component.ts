@@ -77,7 +77,12 @@ export class LoginComponent extends GenericService implements OnInit {
           this.storage.set('nombre', result.message.nombre);
           this.storage.set('roles',result.message.roles);
           this.loginForm.reset();
-          this.router.navigate(['/mis-viajes']);
+          
+          if(result.message.roles.includes('Dashboard') && !result.message.roles.includes('Administrador')){ 
+            this.router.navigate(['/dashboard']);
+          } else {  
+            this.router.navigate(['/mis-viajes']);
+          }
           this.clicked = false;
         });
       } else {
