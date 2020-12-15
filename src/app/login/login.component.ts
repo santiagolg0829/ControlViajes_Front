@@ -45,7 +45,7 @@ export class LoginComponent extends GenericService implements OnInit {
 
   checkDevice(loginForm: any) {
     this.clicked = true;
-    if (this.platform.is("desktop")) {
+    if (this.platform.is("desktop") || this.platform.is("mobileweb")) {
       this.login(loginForm, null);
     } else if (this.platform.is("mobile")) {
       this.firebase.getToken()
@@ -75,12 +75,12 @@ export class LoginComponent extends GenericService implements OnInit {
           this.storage.set('token', result.message.token);
           this.storage.set('expiration', result.message.expiration);
           this.storage.set('nombre', result.message.nombre);
-          this.storage.set('roles',result.message.roles);
+          this.storage.set('roles', result.message.roles);
           this.loginForm.reset();
-          
-          if(result.message.roles.includes('Dashboard') && !result.message.roles.includes('Administrador')){ 
+
+          if (result.message.roles.includes('Dashboard') && !result.message.roles.includes('Administrador')) {
             this.router.navigate(['/dashboard']);
-          } else {  
+          } else {
             this.router.navigate(['/mis-viajes']);
           }
           this.clicked = false;
